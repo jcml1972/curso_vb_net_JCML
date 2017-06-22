@@ -76,6 +76,8 @@
     <Compile Include="Ejemplo_If.vb" />
     <Compile Include="Ejemplo_If_Nulo.vb" />
     <Compile Include="Ejemplo_If_String.vb" />
+    <Compile Include="Ejemplo_Tabla_Multiplicar.vb" />
+    <Compile Include="Ejemplo_Tabla_Multiplicar_While.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
