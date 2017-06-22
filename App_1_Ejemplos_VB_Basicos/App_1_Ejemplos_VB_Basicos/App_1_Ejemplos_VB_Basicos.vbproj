@@ -73,15 +73,23 @@
     <Compile Include="Ejemplo_Calculadora_SelectCase.vb" />
     <Compile Include="Ejemplo_Calculadora_While.vb" />
     <Compile Include="Ejemplo_Circulo.vb" />
+    <Compile Include="Ejemplo_DoLoop.vb" />
+    <Compile Include="Ejemplo_DoLoop2.vb" />
+    <Compile Include="Ejemplo_DoLoop3.vb" />
     <Compile Include="Ejemplo_Edad_Case.vb" />
     <Compile Include="Ejemplo_Edad_Case2.vb" />
     <Compile Include="Ejemplo_Edad_If.vb" />
+    <Compile Include="Ejemplo_ForEach.vb" />
     <Compile Include="Ejemplo_If.vb" />
+    <Compile Include="Ejemplo_If2.vb" />
     <Compile Include="Ejemplo_If_Nulo.vb" />
     <Compile Include="Ejemplo_If_String.vb" />
+    <Compile Include="Ejemplo_Loteria_Select.vb" />
     <Compile Include="Ejemplo_Tabla_Multiplicar.vb" />
     <Compile Include="Ejemplo_Tabla_Multiplicar_ForNext.vb" />
     <Compile Include="Ejemplo_Tabla_Multiplicar_While.vb" />
+    <Compile Include="Ejemplo_ForNext.vb" />
+    <Compile Include="Ejemplo_While.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
