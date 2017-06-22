@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ejemplo_ArcoTangente.vb" />
+    <Compile Include="Ejemplo_Calculadora_DoLoop.vb" />
+    <Compile Include="Ejemplo_Calculadora_While.vb" />
     <Compile Include="Ejemplo_Circulo.vb" />
     <Compile Include="Ejemplo_Edad_Case.vb" />
     <Compile Include="Ejemplo_Edad_Case2.vb" />
