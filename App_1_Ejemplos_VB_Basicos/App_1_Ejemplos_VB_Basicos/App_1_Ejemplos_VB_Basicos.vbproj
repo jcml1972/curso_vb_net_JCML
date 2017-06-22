@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Ejemplo_ArcoTangente.vb" />
     <Compile Include="Ejemplo_Calculadora_DoLoop.vb" />
+    <Compile Include="Ejemplo_Calculadora_SelectCase.vb" />
     <Compile Include="Ejemplo_Calculadora_While.vb" />
     <Compile Include="Ejemplo_Circulo.vb" />
     <Compile Include="Ejemplo_Edad_Case.vb" />
@@ -79,6 +80,7 @@
     <Compile Include="Ejemplo_If_Nulo.vb" />
     <Compile Include="Ejemplo_If_String.vb" />
     <Compile Include="Ejemplo_Tabla_Multiplicar.vb" />
+    <Compile Include="Ejemplo_Tabla_Multiplicar_ForNext.vb" />
     <Compile Include="Ejemplo_Tabla_Multiplicar_While.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
