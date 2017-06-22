@@ -68,6 +68,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ejemplo_Edad_Case.vb" />
+    <Compile Include="Ejemplo_Edad_Case2.vb" />
+    <Compile Include="Ejemplo_Edad_If.vb" />
     <Compile Include="Ejemplo_If.vb" />
     <Compile Include="Ejemplo_If_Nulo.vb" />
     <Compile Include="Ejemplo_If_String.vb" />
