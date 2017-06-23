@@ -27,4 +27,15 @@
         numPerimetro.Value = circulo.CalculaPerimetro()
 
     End Sub
+
+    Private Sub numRadio2_ValueChanged(sender As Object, e As EventArgs) Handles numRadio2.ValueChanged, cbxTipoCalculo.SelectedIndexChanged
+
+        Dim circulo As Circulo = New Circulo(numRadio2.Value, Nothing)
+        If cbxTipoCalculo.SelectedIndex = 0 Then
+            numResultado.Value = circulo.CalculaArea()
+        Else
+            numResultado.Value = circulo.CalculaPerimetro()
+        End If
+
+    End Sub
 End Class
