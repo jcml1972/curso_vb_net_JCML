@@ -2,14 +2,19 @@
     Private Sub ValoresRectangulo(sender As Object, e As EventArgs) Handles numAncho.ValueChanged, numAlto.ValueChanged
         Dim rectangulo As Rectangulo = New Rectangulo(numAlto.Value, numAncho.Value)
 
-        numArea.Value = rectangulo.CalculaArea
-        numPerimetroRectangulo.Value = rectangulo.CalculaPerimetro
+        numArea.Value = rectangulo.CalculaArea()
+        numPerimetro.Value = rectangulo.CalculaPerimetro()
 
     End Sub
 
-    Private Sub radioButton_CheckedChanged(sender As Object, e As EventArgs) Handles RadRectangulo.CheckedChanged
+    Private Sub radioButton_CheckedChanged(sender As Object, e As EventArgs) Handles RadRectangulo.CheckedChanged, RadCirculo.CheckedChanged
 
         GrupoRectangulo.Visible = RadRectangulo.Checked
+        numArea.Value = 0
+        numPerimetro.Value = 0
+        numRadioCirculo.Value = 0
+        numAlto.Value = 0
+        numAncho.Value = 0
         GrupoCirculo.Visible = RadCirculo.Checked
 
     End Sub
@@ -18,8 +23,8 @@
 
         Dim circulo As Circulo = New Circulo(numRadioCirculo.Value, Nothing)
 
-        numAreaCirculo.Value = circulo.CalculaArea
-        numPerimetroCirculo.Value = circulo.CalculaPerimetro
+        numArea.Value = circulo.CalculaArea()
+        numPerimetro.Value = circulo.CalculaPerimetro()
 
     End Sub
 End Class

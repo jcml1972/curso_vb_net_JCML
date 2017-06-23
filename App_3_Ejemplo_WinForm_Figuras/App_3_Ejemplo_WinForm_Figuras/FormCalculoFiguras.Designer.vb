@@ -26,32 +26,27 @@ Partial Class FormCalculoFiguras
         Me.RadCirculo = New System.Windows.Forms.RadioButton()
         Me.RadRectangulo = New System.Windows.Forms.RadioButton()
         Me.GrupoRectangulo = New System.Windows.Forms.GroupBox()
-        Me.numPerimetroRectangulo = New System.Windows.Forms.NumericUpDown()
-        Me.PerimetroRectangulo = New System.Windows.Forms.Label()
-        Me.numArea = New System.Windows.Forms.NumericUpDown()
         Me.numAlto = New System.Windows.Forms.NumericUpDown()
         Me.numAncho = New System.Windows.Forms.NumericUpDown()
-        Me.AreaRectangulo = New System.Windows.Forms.Label()
         Me.AltoRectangulo = New System.Windows.Forms.Label()
         Me.AnchoRectangulo = New System.Windows.Forms.Label()
         Me.GrupoCirculo = New System.Windows.Forms.GroupBox()
-        Me.numPerimetroCirculo = New System.Windows.Forms.NumericUpDown()
-        Me.PerimetroCirculo = New System.Windows.Forms.Label()
-        Me.numAreaCirculo = New System.Windows.Forms.NumericUpDown()
         Me.numRadioCirculo = New System.Windows.Forms.NumericUpDown()
-        Me.AreaCirculo = New System.Windows.Forms.Label()
         Me.RadioCirculo = New System.Windows.Forms.Label()
         Me.GrupoResultado = New System.Windows.Forms.GroupBox()
+        Me.numPerimetro = New System.Windows.Forms.NumericUpDown()
+        Me.Perimetro = New System.Windows.Forms.Label()
+        Me.numArea = New System.Windows.Forms.NumericUpDown()
+        Me.AreaRectangulo = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GrupoRectangulo.SuspendLayout()
-        CType(Me.numPerimetroRectangulo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numArea, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numAlto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numAncho, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GrupoCirculo.SuspendLayout()
-        CType(Me.numPerimetroCirculo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numAreaCirculo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numRadioCirculo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GrupoResultado.SuspendLayout()
+        CType(Me.numPerimetro, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numArea, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -90,50 +85,17 @@ Partial Class FormCalculoFiguras
         '
         'GrupoRectangulo
         '
-        Me.GrupoRectangulo.Controls.Add(Me.numPerimetroRectangulo)
-        Me.GrupoRectangulo.Controls.Add(Me.PerimetroRectangulo)
-        Me.GrupoRectangulo.Controls.Add(Me.numArea)
         Me.GrupoRectangulo.Controls.Add(Me.numAlto)
         Me.GrupoRectangulo.Controls.Add(Me.numAncho)
-        Me.GrupoRectangulo.Controls.Add(Me.AreaRectangulo)
         Me.GrupoRectangulo.Controls.Add(Me.AltoRectangulo)
         Me.GrupoRectangulo.Controls.Add(Me.AnchoRectangulo)
         Me.GrupoRectangulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrupoRectangulo.Location = New System.Drawing.Point(112, 161)
+        Me.GrupoRectangulo.Location = New System.Drawing.Point(12, 161)
         Me.GrupoRectangulo.Name = "GrupoRectangulo"
         Me.GrupoRectangulo.Size = New System.Drawing.Size(267, 181)
         Me.GrupoRectangulo.TabIndex = 1
         Me.GrupoRectangulo.TabStop = False
         Me.GrupoRectangulo.Text = "Rectángulo"
-        '
-        'numPerimetroRectangulo
-        '
-        Me.numPerimetroRectangulo.DecimalPlaces = 2
-        Me.numPerimetroRectangulo.Location = New System.Drawing.Point(127, 137)
-        Me.numPerimetroRectangulo.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
-        Me.numPerimetroRectangulo.Name = "numPerimetroRectangulo"
-        Me.numPerimetroRectangulo.ReadOnly = True
-        Me.numPerimetroRectangulo.Size = New System.Drawing.Size(105, 26)
-        Me.numPerimetroRectangulo.TabIndex = 7
-        '
-        'PerimetroRectangulo
-        '
-        Me.PerimetroRectangulo.AutoSize = True
-        Me.PerimetroRectangulo.Location = New System.Drawing.Point(20, 143)
-        Me.PerimetroRectangulo.Name = "PerimetroRectangulo"
-        Me.PerimetroRectangulo.Size = New System.Drawing.Size(86, 20)
-        Me.PerimetroRectangulo.TabIndex = 6
-        Me.PerimetroRectangulo.Text = "Perímetro"
-        '
-        'numArea
-        '
-        Me.numArea.DecimalPlaces = 2
-        Me.numArea.Location = New System.Drawing.Point(127, 104)
-        Me.numArea.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
-        Me.numArea.Name = "numArea"
-        Me.numArea.ReadOnly = True
-        Me.numArea.Size = New System.Drawing.Size(105, 26)
-        Me.numArea.TabIndex = 5
         '
         'numAlto
         '
@@ -152,15 +114,6 @@ Partial Class FormCalculoFiguras
         Me.numAncho.Name = "numAncho"
         Me.numAncho.Size = New System.Drawing.Size(105, 26)
         Me.numAncho.TabIndex = 3
-        '
-        'AreaRectangulo
-        '
-        Me.AreaRectangulo.AutoSize = True
-        Me.AreaRectangulo.Location = New System.Drawing.Point(20, 110)
-        Me.AreaRectangulo.Name = "AreaRectangulo"
-        Me.AreaRectangulo.Size = New System.Drawing.Size(47, 20)
-        Me.AreaRectangulo.TabIndex = 2
-        Me.AreaRectangulo.Text = "Área"
         '
         'AltoRectangulo
         '
@@ -182,49 +135,16 @@ Partial Class FormCalculoFiguras
         '
         'GrupoCirculo
         '
-        Me.GrupoCirculo.Controls.Add(Me.numPerimetroCirculo)
-        Me.GrupoCirculo.Controls.Add(Me.PerimetroCirculo)
-        Me.GrupoCirculo.Controls.Add(Me.numAreaCirculo)
         Me.GrupoCirculo.Controls.Add(Me.numRadioCirculo)
-        Me.GrupoCirculo.Controls.Add(Me.AreaCirculo)
         Me.GrupoCirculo.Controls.Add(Me.RadioCirculo)
         Me.GrupoCirculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrupoCirculo.Location = New System.Drawing.Point(112, 158)
+        Me.GrupoCirculo.Location = New System.Drawing.Point(11, 157)
         Me.GrupoCirculo.Name = "GrupoCirculo"
         Me.GrupoCirculo.Size = New System.Drawing.Size(267, 181)
         Me.GrupoCirculo.TabIndex = 9
         Me.GrupoCirculo.TabStop = False
         Me.GrupoCirculo.Text = "Círculo"
         Me.GrupoCirculo.Visible = False
-        '
-        'numPerimetroCirculo
-        '
-        Me.numPerimetroCirculo.DecimalPlaces = 2
-        Me.numPerimetroCirculo.Location = New System.Drawing.Point(136, 110)
-        Me.numPerimetroCirculo.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
-        Me.numPerimetroCirculo.Name = "numPerimetroCirculo"
-        Me.numPerimetroCirculo.ReadOnly = True
-        Me.numPerimetroCirculo.Size = New System.Drawing.Size(105, 26)
-        Me.numPerimetroCirculo.TabIndex = 7
-        '
-        'PerimetroCirculo
-        '
-        Me.PerimetroCirculo.AutoSize = True
-        Me.PerimetroCirculo.Location = New System.Drawing.Point(29, 116)
-        Me.PerimetroCirculo.Name = "PerimetroCirculo"
-        Me.PerimetroCirculo.Size = New System.Drawing.Size(86, 20)
-        Me.PerimetroCirculo.TabIndex = 6
-        Me.PerimetroCirculo.Text = "Perímetro"
-        '
-        'numAreaCirculo
-        '
-        Me.numAreaCirculo.DecimalPlaces = 2
-        Me.numAreaCirculo.Location = New System.Drawing.Point(136, 77)
-        Me.numAreaCirculo.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
-        Me.numAreaCirculo.Name = "numAreaCirculo"
-        Me.numAreaCirculo.ReadOnly = True
-        Me.numAreaCirculo.Size = New System.Drawing.Size(105, 26)
-        Me.numAreaCirculo.TabIndex = 5
         '
         'numRadioCirculo
         '
@@ -234,15 +154,6 @@ Partial Class FormCalculoFiguras
         Me.numRadioCirculo.Name = "numRadioCirculo"
         Me.numRadioCirculo.Size = New System.Drawing.Size(105, 26)
         Me.numRadioCirculo.TabIndex = 4
-        '
-        'AreaCirculo
-        '
-        Me.AreaCirculo.AutoSize = True
-        Me.AreaCirculo.Location = New System.Drawing.Point(29, 83)
-        Me.AreaCirculo.Name = "AreaCirculo"
-        Me.AreaCirculo.Size = New System.Drawing.Size(47, 20)
-        Me.AreaCirculo.TabIndex = 2
-        Me.AreaCirculo.Text = "Área"
         '
         'RadioCirculo
         '
@@ -255,19 +166,61 @@ Partial Class FormCalculoFiguras
         '
         'GrupoResultado
         '
+        Me.GrupoResultado.Controls.Add(Me.numPerimetro)
+        Me.GrupoResultado.Controls.Add(Me.Perimetro)
+        Me.GrupoResultado.Controls.Add(Me.numArea)
+        Me.GrupoResultado.Controls.Add(Me.AreaRectangulo)
         Me.GrupoResultado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrupoResultado.Location = New System.Drawing.Point(115, 371)
+        Me.GrupoResultado.Location = New System.Drawing.Point(331, 199)
         Me.GrupoResultado.Name = "GrupoResultado"
-        Me.GrupoResultado.Size = New System.Drawing.Size(257, 116)
+        Me.GrupoResultado.Size = New System.Drawing.Size(260, 116)
         Me.GrupoResultado.TabIndex = 10
         Me.GrupoResultado.TabStop = False
         Me.GrupoResultado.Text = "RESULTADOS"
+        '
+        'numPerimetro
+        '
+        Me.numPerimetro.DecimalPlaces = 2
+        Me.numPerimetro.Location = New System.Drawing.Point(129, 63)
+        Me.numPerimetro.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.numPerimetro.Name = "numPerimetro"
+        Me.numPerimetro.ReadOnly = True
+        Me.numPerimetro.Size = New System.Drawing.Size(105, 26)
+        Me.numPerimetro.TabIndex = 11
+        '
+        'Perimetro
+        '
+        Me.Perimetro.AutoSize = True
+        Me.Perimetro.Location = New System.Drawing.Point(22, 69)
+        Me.Perimetro.Name = "Perimetro"
+        Me.Perimetro.Size = New System.Drawing.Size(86, 20)
+        Me.Perimetro.TabIndex = 10
+        Me.Perimetro.Text = "Perímetro"
+        '
+        'numArea
+        '
+        Me.numArea.DecimalPlaces = 2
+        Me.numArea.Location = New System.Drawing.Point(129, 30)
+        Me.numArea.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.numArea.Name = "numArea"
+        Me.numArea.ReadOnly = True
+        Me.numArea.Size = New System.Drawing.Size(105, 26)
+        Me.numArea.TabIndex = 9
+        '
+        'AreaRectangulo
+        '
+        Me.AreaRectangulo.AutoSize = True
+        Me.AreaRectangulo.Location = New System.Drawing.Point(22, 36)
+        Me.AreaRectangulo.Name = "AreaRectangulo"
+        Me.AreaRectangulo.Size = New System.Drawing.Size(47, 20)
+        Me.AreaRectangulo.TabIndex = 8
+        Me.AreaRectangulo.Text = "Área"
         '
         'FormCalculoFiguras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(639, 547)
+        Me.ClientSize = New System.Drawing.Size(639, 373)
         Me.Controls.Add(Me.GrupoResultado)
         Me.Controls.Add(Me.GrupoCirculo)
         Me.Controls.Add(Me.GrupoRectangulo)
@@ -278,15 +231,15 @@ Partial Class FormCalculoFiguras
         Me.GroupBox1.PerformLayout()
         Me.GrupoRectangulo.ResumeLayout(False)
         Me.GrupoRectangulo.PerformLayout()
-        CType(Me.numPerimetroRectangulo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numArea, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numAlto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numAncho, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GrupoCirculo.ResumeLayout(False)
         Me.GrupoCirculo.PerformLayout()
-        CType(Me.numPerimetroCirculo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numAreaCirculo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numRadioCirculo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GrupoResultado.ResumeLayout(False)
+        Me.GrupoResultado.PerformLayout()
+        CType(Me.numPerimetro, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numArea, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -295,20 +248,16 @@ Partial Class FormCalculoFiguras
     Friend WithEvents RadCirculo As RadioButton
     Friend WithEvents RadRectangulo As RadioButton
     Friend WithEvents GrupoRectangulo As GroupBox
-    Friend WithEvents numArea As NumericUpDown
     Friend WithEvents numAlto As NumericUpDown
     Friend WithEvents numAncho As NumericUpDown
-    Friend WithEvents AreaRectangulo As Label
     Friend WithEvents AltoRectangulo As Label
     Friend WithEvents AnchoRectangulo As Label
-    Friend WithEvents numPerimetroRectangulo As NumericUpDown
-    Friend WithEvents PerimetroRectangulo As Label
     Friend WithEvents GrupoCirculo As GroupBox
-    Friend WithEvents numPerimetroCirculo As NumericUpDown
-    Friend WithEvents PerimetroCirculo As Label
-    Friend WithEvents numAreaCirculo As NumericUpDown
     Friend WithEvents numRadioCirculo As NumericUpDown
-    Friend WithEvents AreaCirculo As Label
     Friend WithEvents RadioCirculo As Label
     Friend WithEvents GrupoResultado As GroupBox
+    Friend WithEvents numPerimetro As NumericUpDown
+    Friend WithEvents Perimetro As Label
+    Friend WithEvents numArea As NumericUpDown
+    Friend WithEvents AreaRectangulo As Label
 End Class
