@@ -1,0 +1,26 @@
+Rueda 0: 50
+Rueda 1: 60
+Rueda 2: 10
+Rueda 3: 80
+Ferrari Testarrosa: No hay puertas!
+Puertas de ferrari: 0
+Ferrari Testarrosa: No hay puertas!
+Puertas de ferrari: 0
+Carburante del ferrari: 97,5
+AppConsolaEjemplosPOO.Coche
+Coche con 10 km
+Ferrari Testarrosa No es 4x4
+Modelo no puede ser vacio
+Sinca 1000: No hay puertas que asignar!
+Sinca 1000: No hay puertas!
+Puertas de Sinca: 0
+AppConsolaEjemplosPOO.Coche
+Coche con 0 km
+Seat Ibiza No es 4x4
+AppConsolaEjemplosPOO.Coche
+Coche con 400030 km
+Sinca 1000 No es 4x4
+Coches totales 3
+KM totales 40
+NumRuedas 4
+Lavadero: Ferrari Testarrosa está limpio

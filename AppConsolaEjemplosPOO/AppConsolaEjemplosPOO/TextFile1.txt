@@ -1,0 +1,31 @@
+﻿Rueda 0:50
+Rueda 1:60
+Rueda 2:70
+Rueda 3:80
+Modelo no puede estar vacío
+Un coche no puede tener 0 puertas
+Puertas de mi Ferrari 0
+Tienes que poner un número par de puertas
+Puertas de mi Ferrari 2
+Modelo no puede estar vacío
+Un coche no puede tener 0 puertas
+Puertas de mi Simca 1000 0
+Tienes que poner un número par de puertas
+Un coche no puede tener 0 puertas
+Puertas de mi Simca 1000 0
+Acabo de llenar el depósito de mi Ferrari Testarrosa
+Después de usarlo, me quedan 75 litros
+Acabo de llenar el depósito de mi Simca 1000 con 92,5 litros
+Tienes que poner un número par de puertas
+Mi coche con 100 km es un Ferrari Testarrosa
+Mi Ferrari Testarrosa no es un 4x4
+Mi coche con 400030 km es un Simca 1000
+Mi Simca 1000 no es un 4x4
+Mi coche con 0 km es un Volvo XC60
+Mi Volvo XC60 no es un 4x4
+Mi coche con 0 km es un Volvo XC60
+Mi Volvo XC60 no es un 4x4
+Coches totales 3
+KM totales 130
+Lavadero: el coche Ferrari Testarrosa está limpio
+Num: 20, precio: 300000
