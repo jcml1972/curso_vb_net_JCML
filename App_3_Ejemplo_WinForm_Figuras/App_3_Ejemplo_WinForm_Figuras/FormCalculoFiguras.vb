@@ -70,4 +70,8 @@
         End If
 
     End Sub
+
+    Private Sub RadioCirculo_Click(sender As Object, e As EventArgs) Handles RadioCirculo.Click
+        MessageBox.Show("Ésta es la etiqueta del radio")
+    End Sub
 End Class
