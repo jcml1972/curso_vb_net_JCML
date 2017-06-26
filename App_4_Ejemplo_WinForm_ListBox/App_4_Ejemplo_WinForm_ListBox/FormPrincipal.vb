@@ -42,7 +42,7 @@
     End Sub
 
     Private Sub btnAbrirForm_Click(sender As Object, e As EventArgs) Handles btnAbrirForm.Click
-        If nuevoFormComboListas Is Nothing Then
+        If nuevoFormComboListas Is Nothing Or nuevoFormComboListas.IsDisposed Then
             nuevoFormComboListas = New FormComboListas()
         End If
         nuevoFormComboListas.Show()
