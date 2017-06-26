@@ -159,7 +159,7 @@ Partial Class FormCalculoFiguras
         Me.GrupoCirculo.Controls.Add(Me.numRadioCirculo)
         Me.GrupoCirculo.Controls.Add(Me.RadioCirculo)
         Me.GrupoCirculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrupoCirculo.Location = New System.Drawing.Point(17, 167)
+        Me.GrupoCirculo.Location = New System.Drawing.Point(18, 163)
         Me.GrupoCirculo.Name = "GrupoCirculo"
         Me.GrupoCirculo.Size = New System.Drawing.Size(260, 116)
         Me.GrupoCirculo.TabIndex = 9
@@ -244,7 +244,7 @@ Partial Class FormCalculoFiguras
         Me.TabControl1.Location = New System.Drawing.Point(296, 25)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(412, 398)
+        Me.TabControl1.Size = New System.Drawing.Size(385, 133)
         Me.TabControl1.TabIndex = 13
         '
         'PestañaCírculo
@@ -256,7 +256,7 @@ Partial Class FormCalculoFiguras
         Me.PestañaCírculo.Location = New System.Drawing.Point(4, 22)
         Me.PestañaCírculo.Name = "PestañaCírculo"
         Me.PestañaCírculo.Padding = New System.Windows.Forms.Padding(3)
-        Me.PestañaCírculo.Size = New System.Drawing.Size(404, 372)
+        Me.PestañaCírculo.Size = New System.Drawing.Size(377, 107)
         Me.PestañaCírculo.TabIndex = 1
         Me.PestañaCírculo.Text = "Círculo"
         Me.PestañaCírculo.UseVisualStyleBackColor = True
@@ -309,7 +309,7 @@ Partial Class FormCalculoFiguras
         Me.PestañaRectangulo.Location = New System.Drawing.Point(4, 22)
         Me.PestañaRectangulo.Name = "PestañaRectangulo"
         Me.PestañaRectangulo.Padding = New System.Windows.Forms.Padding(3)
-        Me.PestañaRectangulo.Size = New System.Drawing.Size(404, 372)
+        Me.PestañaRectangulo.Size = New System.Drawing.Size(377, 107)
         Me.PestañaRectangulo.TabIndex = 0
         Me.PestañaRectangulo.Text = "Rectángulo"
         Me.PestañaRectangulo.UseVisualStyleBackColor = True

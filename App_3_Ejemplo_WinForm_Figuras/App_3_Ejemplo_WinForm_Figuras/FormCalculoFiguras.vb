@@ -54,4 +54,20 @@
         End If
 
     End Sub
+
+    Private Sub FormCalculoFiguras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MessageBox.Show("Evento FormCalculoFiguras_Load")
+    End Sub
+
+    Private Sub FormCalculoFiguras_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+        'MessageBox.Show("Evento FormCalculoFiguras_Closing")
+
+        Dim resultado As DialogResult
+        resultado = MessageBox.Show("¿Cerrar la ventana?", "Atención", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop)
+
+        If resultado = DialogResult.Cancel Then
+            e.Cancel = True
+        End If
+
+    End Sub
 End Class
