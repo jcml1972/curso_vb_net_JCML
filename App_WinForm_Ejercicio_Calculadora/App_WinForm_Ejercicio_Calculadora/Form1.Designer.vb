@@ -41,7 +41,7 @@ Partial Class Form1
         Me.txtOperando1.Location = New System.Drawing.Point(12, 31)
         Me.txtOperando1.Name = "txtOperando1"
         Me.txtOperando1.Size = New System.Drawing.Size(102, 20)
-        Me.txtOperando1.TabIndex = 0
+        Me.txtOperando1.TabIndex = 3
         Me.txtOperando1.Text = "0"
         '
         'txtOperando2
@@ -49,7 +49,7 @@ Partial Class Form1
         Me.txtOperando2.Location = New System.Drawing.Point(120, 31)
         Me.txtOperando2.Name = "txtOperando2"
         Me.txtOperando2.Size = New System.Drawing.Size(106, 20)
-        Me.txtOperando2.TabIndex = 1
+        Me.txtOperando2.TabIndex = 4
         Me.txtOperando2.Text = "0"
         '
         'btnSuma
@@ -58,7 +58,7 @@ Partial Class Form1
         Me.btnSuma.Location = New System.Drawing.Point(14, 69)
         Me.btnSuma.Name = "btnSuma"
         Me.btnSuma.Size = New System.Drawing.Size(40, 28)
-        Me.btnSuma.TabIndex = 2
+        Me.btnSuma.TabIndex = 5
         Me.btnSuma.Text = "+"
         Me.btnSuma.UseVisualStyleBackColor = True
         '
@@ -68,7 +68,7 @@ Partial Class Form1
         Me.btnRestar.Location = New System.Drawing.Point(65, 69)
         Me.btnRestar.Name = "btnRestar"
         Me.btnRestar.Size = New System.Drawing.Size(40, 28)
-        Me.btnRestar.TabIndex = 3
+        Me.btnRestar.TabIndex = 6
         Me.btnRestar.Text = "-"
         Me.btnRestar.UseVisualStyleBackColor = True
         '
@@ -78,7 +78,7 @@ Partial Class Form1
         Me.btnMultiplicar.Location = New System.Drawing.Point(130, 69)
         Me.btnMultiplicar.Name = "btnMultiplicar"
         Me.btnMultiplicar.Size = New System.Drawing.Size(40, 28)
-        Me.btnMultiplicar.TabIndex = 4
+        Me.btnMultiplicar.TabIndex = 7
         Me.btnMultiplicar.Text = "X"
         Me.btnMultiplicar.UseVisualStyleBackColor = True
         '
@@ -88,7 +88,7 @@ Partial Class Form1
         Me.btnDividir.Location = New System.Drawing.Point(177, 69)
         Me.btnDividir.Name = "btnDividir"
         Me.btnDividir.Size = New System.Drawing.Size(40, 28)
-        Me.btnDividir.TabIndex = 5
+        Me.btnDividir.TabIndex = 8
         Me.btnDividir.Text = "/"
         Me.btnDividir.UseVisualStyleBackColor = True
         '
@@ -97,14 +97,14 @@ Partial Class Form1
         Me.numOperando1.Location = New System.Drawing.Point(12, 5)
         Me.numOperando1.Name = "numOperando1"
         Me.numOperando1.Size = New System.Drawing.Size(102, 20)
-        Me.numOperando1.TabIndex = 6
+        Me.numOperando1.TabIndex = 1
         '
         'numOperando2
         '
         Me.numOperando2.Location = New System.Drawing.Point(120, 5)
         Me.numOperando2.Name = "numOperando2"
         Me.numOperando2.Size = New System.Drawing.Size(106, 20)
-        Me.numOperando2.TabIndex = 7
+        Me.numOperando2.TabIndex = 2
         '
         'lblTitulo
         '
