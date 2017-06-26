@@ -28,13 +28,29 @@
 
     End Sub
 
-    Private Sub numRadio2_ValueChanged(sender As Object, e As EventArgs) Handles numRadio2.ValueChanged, cbxTipoCalculo.SelectedIndexChanged
+    Private Sub numRadio2_ValueChanged(sender As Object, e As EventArgs) Handles numRadio2.ValueChanged, cbxTipoCalculoCirc.SelectedIndexChanged
+
 
         Dim circulo As Circulo = New Circulo(numRadio2.Value, Nothing)
-        If cbxTipoCalculo.SelectedIndex = 0 Then
-            numResultado.Value = circulo.CalculaArea()
+        If cbxTipoCalculoCirc.SelectedIndex = 0 Then
+            numResultadoCirculo.Value = circulo.CalculaArea()
+        ElseIf cbxTipoCalculoCirc.SelectedIndex = 1 Then
+            numResultadoCirculo.Value = circulo.CalculaPerimetro()
         Else
-            numResultado.Value = circulo.CalculaPerimetro()
+            numResultadoCirculo.Value = 0
+        End If
+
+    End Sub
+
+    Private Sub valoresRectangulo_ValueChanged(sender As Object, e As EventArgs) Handles numAlto2.ValueChanged, numAncho2.ValueChanged, cbxTipoCalculoRect.SelectedIndexChanged
+
+        Dim rectangulo As Rectangulo = New Rectangulo(numAlto2.Value, numAncho2.Value)
+        If cbxTipoCalculoRect.SelectedIndex = 0 Then
+            numResultadoRectangulo.Value = rectangulo.CalculaArea()
+        ElseIf cbxTipoCalculoRect.SelectedIndex = 1 Then
+            numResultadoRectangulo.Value = rectangulo.CalculaPerimetro()
+        Else
+            numResultadoRectangulo.Value = 0
         End If
 
     End Sub

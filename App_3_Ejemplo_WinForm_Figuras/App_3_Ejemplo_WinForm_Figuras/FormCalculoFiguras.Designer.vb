@@ -39,12 +39,18 @@ Partial Class FormCalculoFiguras
         Me.numArea = New System.Windows.Forms.NumericUpDown()
         Me.AreaRectangulo = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.PestañaRectangulo = New System.Windows.Forms.TabPage()
         Me.PestañaCírculo = New System.Windows.Forms.TabPage()
         Me.Radio = New System.Windows.Forms.Label()
-        Me.numResultado = New System.Windows.Forms.NumericUpDown()
+        Me.numResultadoCirculo = New System.Windows.Forms.NumericUpDown()
         Me.numRadio2 = New System.Windows.Forms.NumericUpDown()
-        Me.cbxTipoCalculo = New System.Windows.Forms.ComboBox()
+        Me.cbxTipoCalculoCirc = New System.Windows.Forms.ComboBox()
+        Me.PestañaRectangulo = New System.Windows.Forms.TabPage()
+        Me.Ancho2 = New System.Windows.Forms.Label()
+        Me.numAncho2 = New System.Windows.Forms.NumericUpDown()
+        Me.Alto2 = New System.Windows.Forms.Label()
+        Me.numAlto2 = New System.Windows.Forms.NumericUpDown()
+        Me.numResultadoRectangulo = New System.Windows.Forms.NumericUpDown()
+        Me.cbxTipoCalculoRect = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GrupoRectangulo.SuspendLayout()
         CType(Me.numAlto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,8 +62,12 @@ Partial Class FormCalculoFiguras
         CType(Me.numArea, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.PestañaCírculo.SuspendLayout()
-        CType(Me.numResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numResultadoCirculo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numRadio2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PestañaRectangulo.SuspendLayout()
+        CType(Me.numAncho2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numAlto2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numResultadoRectangulo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -78,18 +88,18 @@ Partial Class FormCalculoFiguras
         Me.RadCirculo.Location = New System.Drawing.Point(15, 70)
         Me.RadCirculo.Name = "RadCirculo"
         Me.RadCirculo.Size = New System.Drawing.Size(91, 24)
-        Me.RadCirculo.TabIndex = 1
-        Me.RadCirculo.TabStop = True
+        Me.RadCirculo.TabIndex = 2
         Me.RadCirculo.Text = "Círculos"
         Me.RadCirculo.UseVisualStyleBackColor = True
         '
         'RadRectangulo
         '
         Me.RadRectangulo.AutoSize = True
+        Me.RadRectangulo.Checked = True
         Me.RadRectangulo.Location = New System.Drawing.Point(15, 30)
         Me.RadRectangulo.Name = "RadRectangulo"
         Me.RadRectangulo.Size = New System.Drawing.Size(128, 24)
-        Me.RadRectangulo.TabIndex = 0
+        Me.RadRectangulo.TabIndex = 1
         Me.RadRectangulo.TabStop = True
         Me.RadRectangulo.Text = "Rectángulos"
         Me.RadRectangulo.UseVisualStyleBackColor = True
@@ -149,7 +159,7 @@ Partial Class FormCalculoFiguras
         Me.GrupoCirculo.Controls.Add(Me.numRadioCirculo)
         Me.GrupoCirculo.Controls.Add(Me.RadioCirculo)
         Me.GrupoCirculo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrupoCirculo.Location = New System.Drawing.Point(19, 157)
+        Me.GrupoCirculo.Location = New System.Drawing.Point(17, 167)
         Me.GrupoCirculo.Name = "GrupoCirculo"
         Me.GrupoCirculo.Size = New System.Drawing.Size(260, 116)
         Me.GrupoCirculo.TabIndex = 9
@@ -164,7 +174,7 @@ Partial Class FormCalculoFiguras
         Me.numRadioCirculo.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
         Me.numRadioCirculo.Name = "numRadioCirculo"
         Me.numRadioCirculo.Size = New System.Drawing.Size(105, 26)
-        Me.numRadioCirculo.TabIndex = 4
+        Me.numRadioCirculo.TabIndex = 5
         '
         'RadioCirculo
         '
@@ -197,7 +207,7 @@ Partial Class FormCalculoFiguras
         Me.numPerimetro.Name = "numPerimetro"
         Me.numPerimetro.ReadOnly = True
         Me.numPerimetro.Size = New System.Drawing.Size(105, 26)
-        Me.numPerimetro.TabIndex = 11
+        Me.numPerimetro.TabIndex = 7
         '
         'Perimetro
         '
@@ -216,7 +226,7 @@ Partial Class FormCalculoFiguras
         Me.numArea.Name = "numArea"
         Me.numArea.ReadOnly = True
         Me.numArea.Size = New System.Drawing.Size(105, 26)
-        Me.numArea.TabIndex = 9
+        Me.numArea.TabIndex = 6
         '
         'AreaRectangulo
         '
@@ -231,28 +241,18 @@ Partial Class FormCalculoFiguras
         '
         Me.TabControl1.Controls.Add(Me.PestañaRectangulo)
         Me.TabControl1.Controls.Add(Me.PestañaCírculo)
-        Me.TabControl1.Location = New System.Drawing.Point(296, 24)
+        Me.TabControl1.Location = New System.Drawing.Point(296, 25)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(412, 398)
-        Me.TabControl1.TabIndex = 11
-        '
-        'PestañaRectangulo
-        '
-        Me.PestañaRectangulo.Location = New System.Drawing.Point(4, 22)
-        Me.PestañaRectangulo.Name = "PestañaRectangulo"
-        Me.PestañaRectangulo.Padding = New System.Windows.Forms.Padding(3)
-        Me.PestañaRectangulo.Size = New System.Drawing.Size(404, 372)
-        Me.PestañaRectangulo.TabIndex = 0
-        Me.PestañaRectangulo.Text = "Rectángulo"
-        Me.PestañaRectangulo.UseVisualStyleBackColor = True
+        Me.TabControl1.TabIndex = 13
         '
         'PestañaCírculo
         '
         Me.PestañaCírculo.Controls.Add(Me.Radio)
-        Me.PestañaCírculo.Controls.Add(Me.numResultado)
+        Me.PestañaCírculo.Controls.Add(Me.numResultadoCirculo)
         Me.PestañaCírculo.Controls.Add(Me.numRadio2)
-        Me.PestañaCírculo.Controls.Add(Me.cbxTipoCalculo)
+        Me.PestañaCírculo.Controls.Add(Me.cbxTipoCalculoCirc)
         Me.PestañaCírculo.Location = New System.Drawing.Point(4, 22)
         Me.PestañaCírculo.Name = "PestañaCírculo"
         Me.PestañaCírculo.Padding = New System.Windows.Forms.Padding(3)
@@ -270,15 +270,15 @@ Partial Class FormCalculoFiguras
         Me.Radio.TabIndex = 15
         Me.Radio.Text = "Radio"
         '
-        'numResultado
+        'numResultadoCirculo
         '
-        Me.numResultado.DecimalPlaces = 2
-        Me.numResultado.Location = New System.Drawing.Point(21, 89)
-        Me.numResultado.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
-        Me.numResultado.Name = "numResultado"
-        Me.numResultado.ReadOnly = True
-        Me.numResultado.Size = New System.Drawing.Size(105, 20)
-        Me.numResultado.TabIndex = 14
+        Me.numResultadoCirculo.DecimalPlaces = 2
+        Me.numResultadoCirculo.Location = New System.Drawing.Point(228, 58)
+        Me.numResultadoCirculo.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.numResultadoCirculo.Name = "numResultadoCirculo"
+        Me.numResultadoCirculo.ReadOnly = True
+        Me.numResultadoCirculo.Size = New System.Drawing.Size(105, 20)
+        Me.numResultadoCirculo.TabIndex = 16
         '
         'numRadio2
         '
@@ -287,16 +287,87 @@ Partial Class FormCalculoFiguras
         Me.numRadio2.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
         Me.numRadio2.Name = "numRadio2"
         Me.numRadio2.Size = New System.Drawing.Size(105, 20)
-        Me.numRadio2.TabIndex = 13
+        Me.numRadio2.TabIndex = 14
         '
-        'cbxTipoCalculo
+        'cbxTipoCalculoCirc
         '
-        Me.cbxTipoCalculo.FormattingEnabled = True
-        Me.cbxTipoCalculo.Items.AddRange(New Object() {"Calcular Área", "Calcular Perímetro"})
-        Me.cbxTipoCalculo.Location = New System.Drawing.Point(20, 57)
-        Me.cbxTipoCalculo.Name = "cbxTipoCalculo"
-        Me.cbxTipoCalculo.Size = New System.Drawing.Size(141, 21)
-        Me.cbxTipoCalculo.TabIndex = 12
+        Me.cbxTipoCalculoCirc.FormattingEnabled = True
+        Me.cbxTipoCalculoCirc.Items.AddRange(New Object() {"Calcular Área", "Calcular Perímetro"})
+        Me.cbxTipoCalculoCirc.Location = New System.Drawing.Point(52, 56)
+        Me.cbxTipoCalculoCirc.Name = "cbxTipoCalculoCirc"
+        Me.cbxTipoCalculoCirc.Size = New System.Drawing.Size(141, 21)
+        Me.cbxTipoCalculoCirc.TabIndex = 15
+        '
+        'PestañaRectangulo
+        '
+        Me.PestañaRectangulo.Controls.Add(Me.Ancho2)
+        Me.PestañaRectangulo.Controls.Add(Me.numAncho2)
+        Me.PestañaRectangulo.Controls.Add(Me.Alto2)
+        Me.PestañaRectangulo.Controls.Add(Me.numAlto2)
+        Me.PestañaRectangulo.Controls.Add(Me.numResultadoRectangulo)
+        Me.PestañaRectangulo.Controls.Add(Me.cbxTipoCalculoRect)
+        Me.PestañaRectangulo.Location = New System.Drawing.Point(4, 22)
+        Me.PestañaRectangulo.Name = "PestañaRectangulo"
+        Me.PestañaRectangulo.Padding = New System.Windows.Forms.Padding(3)
+        Me.PestañaRectangulo.Size = New System.Drawing.Size(404, 372)
+        Me.PestañaRectangulo.TabIndex = 0
+        Me.PestañaRectangulo.Text = "Rectángulo"
+        Me.PestañaRectangulo.UseVisualStyleBackColor = True
+        '
+        'Ancho2
+        '
+        Me.Ancho2.AutoSize = True
+        Me.Ancho2.Location = New System.Drawing.Point(199, 21)
+        Me.Ancho2.Name = "Ancho2"
+        Me.Ancho2.Size = New System.Drawing.Size(38, 13)
+        Me.Ancho2.TabIndex = 20
+        Me.Ancho2.Text = "Ancho"
+        '
+        'numAncho2
+        '
+        Me.numAncho2.DecimalPlaces = 2
+        Me.numAncho2.Location = New System.Drawing.Point(258, 19)
+        Me.numAncho2.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.numAncho2.Name = "numAncho2"
+        Me.numAncho2.Size = New System.Drawing.Size(105, 20)
+        Me.numAncho2.TabIndex = 10
+        '
+        'Alto2
+        '
+        Me.Alto2.AutoSize = True
+        Me.Alto2.Location = New System.Drawing.Point(20, 21)
+        Me.Alto2.Name = "Alto2"
+        Me.Alto2.Size = New System.Drawing.Size(25, 13)
+        Me.Alto2.TabIndex = 18
+        Me.Alto2.Text = "Alto"
+        '
+        'numAlto2
+        '
+        Me.numAlto2.DecimalPlaces = 2
+        Me.numAlto2.Location = New System.Drawing.Point(63, 18)
+        Me.numAlto2.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.numAlto2.Name = "numAlto2"
+        Me.numAlto2.Size = New System.Drawing.Size(105, 20)
+        Me.numAlto2.TabIndex = 9
+        '
+        'numResultadoRectangulo
+        '
+        Me.numResultadoRectangulo.DecimalPlaces = 2
+        Me.numResultadoRectangulo.Location = New System.Drawing.Point(233, 61)
+        Me.numResultadoRectangulo.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.numResultadoRectangulo.Name = "numResultadoRectangulo"
+        Me.numResultadoRectangulo.ReadOnly = True
+        Me.numResultadoRectangulo.Size = New System.Drawing.Size(105, 20)
+        Me.numResultadoRectangulo.TabIndex = 12
+        '
+        'cbxTipoCalculoRect
+        '
+        Me.cbxTipoCalculoRect.FormattingEnabled = True
+        Me.cbxTipoCalculoRect.Items.AddRange(New Object() {"Calcular Área", "Calcular Perímetro"})
+        Me.cbxTipoCalculoRect.Location = New System.Drawing.Point(49, 59)
+        Me.cbxTipoCalculoRect.Name = "cbxTipoCalculoRect"
+        Me.cbxTipoCalculoRect.Size = New System.Drawing.Size(141, 21)
+        Me.cbxTipoCalculoRect.TabIndex = 11
         '
         'FormCalculoFiguras
         '
@@ -326,8 +397,13 @@ Partial Class FormCalculoFiguras
         Me.TabControl1.ResumeLayout(False)
         Me.PestañaCírculo.ResumeLayout(False)
         Me.PestañaCírculo.PerformLayout()
-        CType(Me.numResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numResultadoCirculo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numRadio2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PestañaRectangulo.ResumeLayout(False)
+        Me.PestañaRectangulo.PerformLayout()
+        CType(Me.numAncho2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numAlto2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numResultadoRectangulo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -352,7 +428,13 @@ Partial Class FormCalculoFiguras
     Friend WithEvents PestañaRectangulo As TabPage
     Friend WithEvents PestañaCírculo As TabPage
     Friend WithEvents Radio As Label
-    Friend WithEvents numResultado As NumericUpDown
+    Friend WithEvents numResultadoCirculo As NumericUpDown
     Friend WithEvents numRadio2 As NumericUpDown
-    Friend WithEvents cbxTipoCalculo As ComboBox
+    Friend WithEvents cbxTipoCalculoCirc As ComboBox
+    Friend WithEvents numResultadoRectangulo As NumericUpDown
+    Friend WithEvents cbxTipoCalculoRect As ComboBox
+    Friend WithEvents Ancho2 As Label
+    Friend WithEvents numAncho2 As NumericUpDown
+    Friend WithEvents Alto2 As Label
+    Friend WithEvents numAlto2 As NumericUpDown
 End Class
