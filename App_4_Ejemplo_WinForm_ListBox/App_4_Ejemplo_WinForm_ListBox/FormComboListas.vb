@@ -4,4 +4,5 @@
             Label1.Text += My.Application.OpenForms.Item(i).Text & vbCrLf
         Next
     End Sub
+
 End Class
