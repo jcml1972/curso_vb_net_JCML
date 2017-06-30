@@ -22,16 +22,58 @@ Partial Class Form_Alta
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.LimpiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LimpiarToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ArchivoToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(447, 24)
+        Me.MenuStrip1.TabIndex = 0
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'LimpiarToolStripMenuItem
+        '
+        Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
+        Me.LimpiarToolStripMenuItem.Text = "Limpiar"
+        '
+        'GuardarToolStripMenuItem
+        '
+        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.GuardarToolStripMenuItem.Text = "Guardar"
+        '
+        'ArchivoToolStripMenuItem
+        '
+        Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.ArchivoToolStripMenuItem.Text = "Archivo"
         '
         'Form_Alta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(447, 335)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form_Alta"
         Me.Text = "Alta de empleado"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents LimpiarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GuardarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
 End Class
