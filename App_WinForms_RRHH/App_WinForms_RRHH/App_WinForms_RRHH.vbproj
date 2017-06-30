@@ -90,6 +90,11 @@
     <Compile Include="MDI_Principal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modelo\Constantes.vb" />
+    <Compile Include="Modelo\Empleados\Empleado.vb" />
+    <Compile Include="Modelo\Empleados\EmpleadosCRUD.vb" />
+    <Compile Include="Modelo\Empleados\EmpleadosFichero.vb" />
+    <Compile Include="Modelo\Enumerados.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -134,6 +139,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Formularios\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
