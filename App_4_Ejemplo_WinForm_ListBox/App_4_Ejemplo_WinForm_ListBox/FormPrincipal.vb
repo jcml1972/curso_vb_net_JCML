@@ -1,99 +1,83 @@
 ﻿Public Class FormPrincipal
-
-    Private nuevoFormComboListas As FormComboListas
-
+    Private miFormComboListas As FormComboListas
     Private Sub FormPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        nuevoFormComboListas = New FormComboListas
+        miFormComboListas = New FormComboListas()
     End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnMostrarLongitud.Click
-        Dim esteBoton As Button = CType(sender, Button)
-        esteBoton.Location = New Point(esteBoton.Location.X + 20, esteBoton.Location.Y)
-        MessageBox.Show("Longitud de texto multilínea: " & txtMultilinea.TextLength.ToString() &
-                        vbCrLf &
-                         "longitud de texto 2: " & txtDiezCaracteres.TextLength.ToString())
+        MessageBox.Show("longitud de texto multilena: " & txtMultilinea.TextLength.ToString() &
+                        vbCrLf & "longitud texto 2: " & txtDiezCaracteres.TextLength.ToString())
     End Sub
-
-    Private Sub TextBox1y2_TextChanged(sender As Object, e As EventArgs) Handles txtMultilinea.TextChanged, txtDiezCaracteres.TextChanged
-
-        lblLongitudes.Text = "Longitud de texto multilínea: " & txtMultilinea.TextLength.ToString() &
-                        vbCrLf &
-                         "longitud de texto 2: " & txtDiezCaracteres.TextLength.ToString()
-
+    Private Sub TextBox1_2_TextChanged(sender As Object, e As EventArgs) Handles txtMultilinea.TextChanged, txtDiezCaracteres.TextChanged
+        lblLongitudes.Text = "longitud de texto multilena: " & txtMultilinea.TextLength.ToString() &
+                        vbCrLf & "longitud texto 2: " & txtDiezCaracteres.TextLength.ToString()
     End Sub
-
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         lstListaDatos.Items.Add(txtMultilinea.Text)
     End Sub
-
     Private Sub btnAdd2_Click(sender As Object, e As EventArgs) Handles btnAdd2.Click
         lstListaDatos.Items.Add(txtDiezCaracteres.Text)
         txtDiezCaracteres.Clear()
     End Sub
-
-    Private Sub btnEliminardelaLista_Click(sender As Object, e As EventArgs) Handles btnElminardelaLista.Click
+    Private Sub btnEliminarDeLista_Click(sender As Object, e As EventArgs) Handles btnEliminarDeLista.Click
         lstListaDatos.Items.RemoveAt(lstListaDatos.SelectedIndex)
     End Sub
-
     Private Sub lstListaDatos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstListaDatos.SelectedIndexChanged
-        If lstListaDatos.Items.Count = 0 Then
-            btnElminardelaLista.Enabled = False
-        ElseIf lstListaDatos.Items.Count > 0 Then
-            btnElminardelaLista.Enabled = True
-        End If
-    End Sub
 
+        btnEliminarDeLista.Enabled = (lstListaDatos.SelectedIndex >= 0)
+    End Sub
     Private Sub btnAbrirForm_Click(sender As Object, e As EventArgs) Handles btnAbrirForm.Click
-        If nuevoFormComboListas Is Nothing Or nuevoFormComboListas.IsDisposed Then
-            nuevoFormComboListas = New FormComboListas()
+        If miFormComboListas Is Nothing Or miFormComboListas.IsDisposed Then
+            miFormComboListas = New FormComboListas()
         End If
-        nuevoFormComboListas.ShowDialog()
+        miFormComboListas.ShowDialog()
     End Sub
-
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
-        nuevoFormComboListas.Hide()
+        miFormComboListas.Hide()  'nuevoFormComboListas.Close()
     End Sub
 
-    Private Sub btnCambiar_Click(sender As Object, e As EventArgs) Handles btnCambiar.Click
+    Private Sub btnCambiar_Click(sender As Object, e As EventArgs) Handles btnCambiar.Click, btnMostrarLongitud.Click
         Dim tipoFuente As Integer
-        tipoFuente = System.Drawing.FontStyle.Italic + System.Drawing.FontStyle.Underline
-        Me.lblLongitudes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, tipoFuente,
-                                                        System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        'tipoFuente = System.Drawing.FontStyle.Bold + System.Drawing.FontStyle.Strikeout     ' 1001 = 9
+        tipoFuente = System.Drawing.FontStyle.Italic + System.Drawing.FontStyle.Underline   ' 0110 = 6
+        'tipoFuente = System.Drawing.FontStyle.Bold + System.Drawing.FontStyle.Italic        ' 0011 = 3
 
-        ' modifica tamaño de txtMultilínea
+        Me.lblLongitudes.Font = New Font("Microsoft Sans Serif", 16, tipoFuente,
+                                         System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ' Ampliar el tamaño de txtMultilinea
+        Me.txtMultilinea.Multiline = True
         Dim tamañoTxtMult As Size = Me.txtMultilinea.Size
-        tamañoTxtMult.Height += -10
+        tamañoTxtMult.Height += 100
         Me.txtMultilinea.Size = tamañoTxtMult
-        ' mover a la derecha el botón pulsado
+        ' Mover a la derecha el boton pulsado
         Dim esteBoton As Button = CType(sender, Button)
         esteBoton.Location = New Point(esteBoton.Location.X + 20, esteBoton.Location.Y)
 
-        ' Poner btnAbrirFomr a la izquierda del botón cerrar
-
+        ' Poner btnAbrirForm a la izquierda del boton Cerrar
         btnAbrirForm.Location = New Point(btnCerrar.Location.X - btnAbrirForm.Size.Width - 10,
-                                          btnCerrar.Location.Y)
-        ' cambiar propiedades el propio formulario
-        Me.Text = "Nueva Ventana"
+                                            btnCerrar.Location.Y)
+
+        ' Cambiar las propiedades del propio formulario
+        Me.Text = "Nuevo titulo ventana"
         Me.BackColor = Color.BurlyWood
-        Me.BackColor = Color.FromArgb(255, 255, 255, 0) ' 32 bits. 8bits por color, 1 byte por color
+        Me.BackColor = Color.FromArgb(255, 255, 255, 0) '32 bits. 8 bit por color, 1 byte por color
 
-        lstListaDatos.SetBounds(417, 45, 245, 485)
+        '417; 45 / 245; 184
+        lstListaDatos.SetBounds(417, 45, 245, 185)
         'lstListaDatos.BringToFront()
-        Label4.SendToBack()
+        Label5.SendToBack()
 
-
+        '       Dim nuevoBoton As Button
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
         Dim fecha As Date = DateTimePicker1.Value
-
         fecha = fecha.AddDays(1)
-        fecha.ToShortTimeString()
-        Me.Text = "Ventana: " & fecha
-        If fecha.Year = 2017 Then
-            Me.Text += vbCr & "¡Este mismo año!"
-        End If
 
+        Me.Text = "Ventana: " & fecha.ToString()
+
+        If fecha.Year = 2017 Then
+            Me.Text += "¡Este mismo año!"
+        End If
     End Sub
 
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
@@ -107,8 +91,93 @@
         AddHandler nuevoBoton.Click, AddressOf EliminarComponente
 
     End Sub
-
     Private Sub EliminarComponente(sender As Button, e As EventArgs)
         sender.Dispose()
+    End Sub
+    Private Sub MonthCalendar1_DateChanged(sender As Object, e As DateRangeEventArgs) Handles MonthCalendar1.DateChanged
+
+        DateTimePicker1.Value = MonthCalendar1.SelectionRange.Start
+
+        DateTimePicker2.Value = MonthCalendar1.SelectionEnd
+    End Sub
+    Private Sub MostrarDiaSemana(dateTime As DateTimePicker, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        Select Case dateTime.Value.DayOfWeek
+            Case DayOfWeek.Monday
+                lblDiaSemana.Text = "Lunes"
+            Case DayOfWeek.Tuesday
+                lblDiaSemana.Text = "Martes"
+            Case DayOfWeek.Wednesday
+                lblDiaSemana.Text = "Miercoles"
+            Case DayOfWeek.Thursday
+                lblDiaSemana.Text = "J"
+            Case DayOfWeek.Friday
+                lblDiaSemana.Text = "V"
+            Case DayOfWeek.Saturday
+                lblDiaSemana.Text = "S"
+            Case DayOfWeek.Sunday
+                lblDiaSemana.Text = "D"
+        End Select
+    End Sub
+    Private Sub MostrarComparativa(dateTime As DateTimePicker, e As EventArgs) Handles DateTimePicker1.ValueChanged, DateTimePicker2.ValueChanged
+        If DateTimePicker1.Value.CompareTo(DateTimePicker2.Value) < 0 Then
+            lblComparacion.Text = "La primera fecha es menor"
+        ElseIf DateTimePicker1.Value.CompareTo(DateTimePicker2.Value) > 0 Then
+            lblComparacion.Text = "La segunda fecha es menor"
+        Else
+            lblComparacion.Text = "Las fechas son iguales"
+        End If
+    End Sub
+
+    Private Sub btnComparar_Click(sender As Object, e As EventArgs) Handles btnComparar.Click
+
+        Dim resultadoComparacion As Integer = txtTexto_A.Text.CompareTo(txtTexto_B.Text)
+
+        If resultadoComparacion < 0 Then
+            lblCompTxt.Text = "El primer texto es mayor"
+        ElseIf resultadoComparacion > 0 Then
+            lblCompTxt.Text = "El primer texto es menor"
+        Else
+            lblCompTxt.Text = "Los textos son iguales"
+        End If
+    End Sub
+
+    Private Sub btnProvocador_Click(sender As Object, e As EventArgs) Handles btnProvocador.Click
+        txtTexto_A.BackColor = Color.Chartreuse
+    End Sub
+    Private Sub EventoProvocado(sender As Object, e As EventArgs) Handles txtTexto_A.BackColorChanged, txtTexto_A.Enter
+        MessageBox.Show(Me,
+                        "Evento " & e.ToString() & vbCrLf &
+                        " desde " & sender.ToString(),
+                        "Evento provocado")
+    End Sub
+    Private Sub TextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTexto_A.KeyPress
+        ' Procesa solo las teclas numéricas y las teclas de control
+        If Not (Char.IsDigit(e.KeyChar) Or Char.IsControl(e.KeyChar)) Then
+            ' Ignorar la tecla
+            e.Handled = True
+        End If
+
+    End Sub
+    ' Char.ToUpper  / String.ToUpper / Char.IsLetter
+    ' Ejercicio: Convertir a mayusculas los caracteres de txtTexto_B usando KeyPress
+    Private Sub TextBox_B_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTexto_B.KeyPress
+        If Char.IsLetter(e.KeyChar) Then
+            e.KeyChar = Char.ToUpper(e.KeyChar)
+        End If
+        ' txtTexto_B.Text = txtTexto_B.Text.ToUpper()
+        'If Char.IsLetter(e.KeyChar) Then
+        ' txtTexto_B.SelectedText = Char.ToUpper(e.KeyChar)
+        'e.Handled = True
+        'End If
+    End Sub
+
+    Private Sub txtTexto_B_KeyDown(sender As Object, e As KeyEventArgs) Handles txtTexto_B.KeyDown
+        lblPulsando.Text = "ABAJO " & e.KeyCode.ToString()
+        lblPulsando.Text += If(e.Shift, " MAYUS", "")
+
+    End Sub
+    Private Sub txtTexto_b_Keyup(sender As Object, e As KeyEventArgs) Handles txtTexto_B.KeyUp
+        lblPulsando.Text = "ARRIBA " & e.KeyCode.ToString()
+        lblPulsando.Text += If(e.Shift, " MAYUS", "")
     End Sub
 End Class
