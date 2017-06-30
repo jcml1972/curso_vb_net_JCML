@@ -72,16 +72,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form_Alta.Designer.vb">
+    <Compile Include="Formularios\Form_Alta.Designer.vb">
       <DependentUpon>Form_Alta.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form_Alta.vb">
+    <Compile Include="Formularios\Form_Alta.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Baja.Designer.vb">
+    <Compile Include="Formularios\Form_Baja.Designer.vb">
       <DependentUpon>Form_Baja.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form_Baja.vb">
+    <Compile Include="Formularios\Form_Baja.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI_Principal.Designer.vb">
@@ -112,10 +112,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form_Alta.resx">
+    <EmbeddedResource Include="Formularios\Form_Alta.resx">
       <DependentUpon>Form_Alta.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Baja.resx">
+    <EmbeddedResource Include="Formularios\Form_Baja.resx">
       <DependentUpon>Form_Baja.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Principal.resx">
@@ -140,9 +140,7 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Formularios\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
