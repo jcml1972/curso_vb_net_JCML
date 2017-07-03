@@ -31,7 +31,6 @@ Public Class Form_Alta
             And cmbGenero.SelectedIndex >= 0 _
             And domCategoria.SelectedIndex >= 0 _
             And numRetribFija.Value > 0
-
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
@@ -41,6 +40,12 @@ Public Class Form_Alta
         domCategoria.Text = ""
         domCategoria.SelectedIndex = -1
         numRetribFija.Value = 0
-
+    End Sub
+    Private Sub AlActivarseFormulario(sender As Object, e As EventArgs) Handles Me.Activated
+        Me.MdiParent.Text = "Alta Empleado"
+    End Sub
+    Private Sub AlDesactivarseFormulario(sender As Object, e As EventArgs) _
+        Handles Me.Deactivate
+        Me.MdiParent.Text = "Aplicación Empleados"
     End Sub
 End Class
