@@ -5,6 +5,7 @@ Public Class MDI_Principal
 
     Private frmAlta As Form_Alta
     Private frmBaja As Form_Baja
+    Private frmLista As Form_Lista
 
     Private Sub abrir_Formulario(Of TForm As {Form, New})(ByRef formulario As TForm)
         If formulario Is Nothing OrElse formulario.IsDisposed() Then
@@ -16,6 +17,10 @@ Public Class MDI_Principal
             ActivateMdiChild(formulario)
         End If
         formulario.Activate()
+    End Sub
+
+    Private Sub ListaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListaToolStripMenuItem.Click
+        abrir_Formulario(Of Form_Lista)(frmLista)
     End Sub
 
     Private Sub AltaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaToolStripMenuItem.Click
@@ -148,6 +153,5 @@ Public Class MDI_Principal
             Next
         End If
     End Sub
-
 
 End Class
