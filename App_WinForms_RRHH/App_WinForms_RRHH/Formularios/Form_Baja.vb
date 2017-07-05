@@ -2,7 +2,7 @@
 
 Public Class Form_Baja
 
-    Private frmLista As New Form_Lista
+    Private frmBusqueda As New Form_Busqueda
 
     Private Sub AlActivarseFormulario(sender As Object, e As EventArgs) _
         Handles Me.Activated
@@ -15,15 +15,15 @@ Public Class Form_Baja
     End Sub
 
     Private Sub btnDarDeBaja_Click(sender As Object, e As EventArgs) Handles btnDarDeBaja.Click
-        EmpleadosCRUD.Eliminar(frmLista.listaEmpleados)
+        EmpleadosCRUD.Eliminar(frmBusqueda.listaEmpleados)
         MessageBox.Show("¡¡Se ha eliminado el empleado!!")
         Me.Close()
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         ' frmLista.MdiParent = Me.MdiParent
-        frmLista.ShowDialog(Me)
+        frmBusqueda.ShowDialog(Me)
         lstEmpleados.Items.Clear()
-        lstEmpleados.Items.AddRange(frmLista.lstListaEmpleados.Items)
+        lstEmpleados.Items.AddRange(frmBusqueda.lstListaEmpleados.Items)
     End Sub
 End Class
