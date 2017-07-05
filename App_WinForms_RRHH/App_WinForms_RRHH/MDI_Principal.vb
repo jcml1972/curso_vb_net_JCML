@@ -4,8 +4,7 @@ Imports App_WinForms_RRHH.Modelo
 Public Class MDI_Principal
 
     Private frmAlta As Form_Alta
-    Private frmBaja As Form_Baja
-    Private frmLista As Form_Lista
+    Private frmBusqueda As Form_Busqueda
 
     Private Sub abrir_Formulario(Of TForm As {Form, New})(ByRef formulario As TForm)
         If formulario Is Nothing OrElse formulario.IsDisposed() Then
@@ -18,27 +17,21 @@ Public Class MDI_Principal
         End If
         formulario.Activate()
     End Sub
-
-    Private Sub ListaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListaToolStripMenuItem.Click
-        abrir_Formulario(Of Form_Lista)(frmLista)
-    End Sub
-
-    Private Sub AltaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaToolStripMenuItem.Click
+    Public Sub AbrirAlta()
         abrir_Formulario(Of Form_Alta)(frmAlta)
     End Sub
 
-    Private Sub BajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BajaToolStripMenuItem.Click
-        abrir_Formulario(Of Form_Baja)(frmBaja)
+    Private Sub BusquedaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BusquedaToolStripMenuItem.Click
+        abrir_Formulario(Of Form_Busqueda)(frmBusqueda)
+    End Sub
+
+    Private Sub AltaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaToolStripMenuItem.Click
+        AbrirAlta()
     End Sub
 
     Private Sub AltasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltasToolStripMenuItem.Click
         abrir_Formulario(Of Form_Alta)(frmAlta)
     End Sub
-
-    Private Sub BajasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BajasToolStripMenuItem.Click
-        abrir_Formulario(Of Form_Baja)(frmBaja)
-    End Sub
-
 
     ' CÓDIGO GENERADO POR VISUAL STUDIO
 

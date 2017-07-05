@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form_Lista
+Partial Class Form_Busqueda
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -29,6 +29,10 @@ Partial Class Form_Lista
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbApellidos = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnBaja = New System.Windows.Forms.Button()
+        Me.btnAlta = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lstListaEmpleados
@@ -36,6 +40,7 @@ Partial Class Form_Lista
         Me.lstListaEmpleados.FormattingEnabled = True
         Me.lstListaEmpleados.Location = New System.Drawing.Point(28, 159)
         Me.lstListaEmpleados.Name = "lstListaEmpleados"
+        Me.lstListaEmpleados.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.lstListaEmpleados.Size = New System.Drawing.Size(345, 121)
         Me.lstListaEmpleados.TabIndex = 0
         '
@@ -91,11 +96,61 @@ Partial Class Form_Lista
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Empleados encontrados:"
         '
-        'Form_Lista
+        'btnBaja
+        '
+        Me.btnBaja.BackColor = System.Drawing.Color.Yellow
+        Me.btnBaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBaja.ForeColor = System.Drawing.Color.Red
+        Me.btnBaja.Location = New System.Drawing.Point(277, 302)
+        Me.btnBaja.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnBaja.Name = "btnBaja"
+        Me.btnBaja.Size = New System.Drawing.Size(114, 45)
+        Me.btnBaja.TabIndex = 7
+        Me.btnBaja.Text = "Dar de Baja"
+        Me.btnBaja.UseVisualStyleBackColor = False
+        '
+        'btnAlta
+        '
+        Me.btnAlta.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnAlta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAlta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnAlta.Location = New System.Drawing.Point(28, 302)
+        Me.btnAlta.Name = "btnAlta"
+        Me.btnAlta.Size = New System.Drawing.Size(121, 45)
+        Me.btnAlta.TabIndex = 8
+        Me.btnAlta.Text = "ALTA.."
+        Me.btnAlta.UseVisualStyleBackColor = False
+        '
+        'btnModificar
+        '
+        Me.btnModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnModificar.Location = New System.Drawing.Point(157, 302)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(113, 45)
+        Me.btnModificar.TabIndex = 9
+        Me.btnModificar.Text = "MODIFICAR..."
+        Me.btnModificar.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(405, 302)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(122, 45)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Cerrar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Form_Busqueda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(385, 329)
+        Me.ClientSize = New System.Drawing.Size(617, 370)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnModificar)
+        Me.Controls.Add(Me.btnAlta)
+        Me.Controls.Add(Me.btnBaja)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cmbApellidos)
         Me.Controls.Add(Me.Label3)
@@ -103,7 +158,7 @@ Partial Class Form_Lista
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmbNombre)
         Me.Controls.Add(Me.lstListaEmpleados)
-        Me.Name = "Form_Lista"
+        Me.Name = "Form_Busqueda"
         Me.Text = "Listar Empleados"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -117,4 +172,8 @@ Partial Class Form_Lista
     Friend WithEvents Label3 As Label
     Friend WithEvents cmbApellidos As ComboBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents btnBaja As Button
+    Friend WithEvents btnAlta As Button
+    Friend WithEvents btnModificar As Button
+    Friend WithEvents Button1 As Button
 End Class

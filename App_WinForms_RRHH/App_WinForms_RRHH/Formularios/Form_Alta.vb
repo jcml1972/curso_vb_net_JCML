@@ -12,8 +12,8 @@ Public Class Form_Alta
             ' Asignamos valores
             nuevoEmpleado.nombre = txtNombre.Text
             nuevoEmpleado.apellidos = txtApellidos.Text
-            nuevoEmpleado.genero = cmbGenero.SelectedIndex + 1
-            nuevoEmpleado.categoria = domCategoria.SelectedIndex + 1
+            nuevoEmpleado.genero = CType(cmbGenero.SelectedIndex + 1, TipoGenero)
+            nuevoEmpleado.categoria = CType(domCategoria.SelectedIndex + 1, TipoCategoria)
             nuevoEmpleado.retribucionFija = numRetribFija.Value + 1
             EmpleadosCRUD.Crear(nuevoEmpleado)
             Me.Close()

@@ -33,13 +33,6 @@ Namespace Modelo
         'Function Leer(indice As Integer) As Empleado
         '    Return listaEmpleados(indice)
         'End Function
-
-        'Function BuscarPorCampoEmpleado(valor As String) As Integer
-        '    Dim indiceEmpleado As Integer
-        '    indiceEmpleado = BuscarPorCampoEmpleado(valor, TipoCampoEmpleado.Nombre)
-        '    Return indiceEmpleado
-        'End Function
-
         Function BuscarEmpleados(nombre As String, apellido As String) As List(Of Empleado)
             nombre = nombre.ToUpper()
             apellido = apellido.ToUpper()
@@ -59,9 +52,9 @@ Namespace Modelo
             Next
         End Function
 
-        'Sub Actualizar(indice As Integer, empleado As Empleado)
-        '    listaEmpleados(indice) = empleado
-        'End Sub
+        Sub Actualizar(indice As Integer, empleado As Empleado)
+            listaEmpleados(indice) = empleado
+        End Sub
         '' Para eliminar
         '' 1 2 3 4 5 6 7 8 9 10
         '' posicion:
