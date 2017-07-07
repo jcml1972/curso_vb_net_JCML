@@ -40,7 +40,6 @@ Partial Class Form_Busqueda
         Me.lstListaEmpleados.FormattingEnabled = True
         Me.lstListaEmpleados.Location = New System.Drawing.Point(28, 159)
         Me.lstListaEmpleados.Name = "lstListaEmpleados"
-        Me.lstListaEmpleados.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.lstListaEmpleados.Size = New System.Drawing.Size(345, 121)
         Me.lstListaEmpleados.TabIndex = 0
         '

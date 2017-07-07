@@ -1,6 +1,12 @@
 ﻿Imports App_WinForms_RRHH.Modelo
 
 Public Class Form_Alta
+    Public nuevoEmpleado As Empleado
+
+
+    Private Sub Form_Alta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MyBase.Activate()
+    End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
@@ -8,7 +14,7 @@ Public Class Form_Alta
         ' TODO: Hacer las validaciones
 
         Try
-            Dim nuevoEmpleado As Empleado = New Empleado()
+
             ' Asignamos valores
             nuevoEmpleado.nombre = txtNombre.Text
             nuevoEmpleado.apellidos = txtApellidos.Text
@@ -48,4 +54,6 @@ Public Class Form_Alta
         Handles Me.Deactivate
         Me.MdiParent.Text = "Aplicación Empleados"
     End Sub
+
+
 End Class

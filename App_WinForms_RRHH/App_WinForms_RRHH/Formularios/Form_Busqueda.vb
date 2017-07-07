@@ -45,6 +45,17 @@ Public Class Form_Busqueda
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        'lstListaEmpleados.SelectedIndex
+
+        Dim listaModificar As New List(Of Empleado)
+        For i = 0 To lstListaEmpleados.SelectedIndices.Count - 1
+            Dim indexEmpleado = lstListaEmpleados.SelectedIndices(i)
+            Dim frmModificar = New Form_Modificacion()
+            frmModificar.MdiParent = Me.MdiParent
+            frmModificar.empleadoAModificar = listaEmpleados(indexEmpleado)
+            frmModificar.Show()
+        Next
+
+
+
     End Sub
 End Class

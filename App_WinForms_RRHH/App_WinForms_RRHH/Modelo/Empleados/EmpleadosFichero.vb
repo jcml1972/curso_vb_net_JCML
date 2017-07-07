@@ -14,7 +14,7 @@ Namespace Modelo
 
             For i = 0 To arrayEmpleados.Length - 1 Step 1
                 fichero.WriteLine(arrayEmpleados(i).nombre & "," &
-                                  arrayEmpleados(i).apellidos & "," & arrayEmpleados(i).genero & "," & arrayEmpleados(i).categoria)
+                                  arrayEmpleados(i).apellidos & "," & arrayEmpleados(i).genero & "," & arrayEmpleados(i).categoria & "," & arrayEmpleados(i).retribucionFija)
             Next
             fichero.Close()
             Return True

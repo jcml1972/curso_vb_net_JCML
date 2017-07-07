@@ -5,6 +5,7 @@ Public Class MDI_Principal
 
     Private frmAlta As Form_Alta
     Private frmBusqueda As Form_Busqueda
+    Private frmModificacion As Form_Modificacion
 
     Private Sub abrir_Formulario(Of TForm As {Form, New})(ByRef formulario As TForm)
         If formulario Is Nothing OrElse formulario.IsDisposed() Then
@@ -19,6 +20,13 @@ Public Class MDI_Principal
     End Sub
     Public Sub AbrirAlta()
         abrir_Formulario(Of Form_Alta)(frmAlta)
+    End Sub
+    Public Sub AbrirBusqueda()
+        abrir_Formulario(Of Form_Busqueda)(frmBusqueda)
+    End Sub
+
+    Public Sub AbrirModificacion()
+        abrir_Formulario(Of Form_Modificacion)(frmModificacion)
     End Sub
 
     Private Sub BusquedaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BusquedaToolStripMenuItem.Click
@@ -147,4 +155,7 @@ Public Class MDI_Principal
         End If
     End Sub
 
+    Private Sub ModificaciónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModificaciónToolStripMenuItem.Click
+        AbrirModificacion()
+    End Sub
 End Class

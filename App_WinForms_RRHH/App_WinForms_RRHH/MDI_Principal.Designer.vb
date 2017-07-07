@@ -52,8 +52,8 @@ Partial Class MDI_Principal
         Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambiarFuenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BusquedaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BusquedaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModificaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarAutomáticamenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -297,12 +297,6 @@ Partial Class MDI_Principal
         Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
         Me.EmpleadosToolStripMenuItem.Text = "Em&pleados"
         '
-        'BusquedaToolStripMenuItem
-        '
-        Me.BusquedaToolStripMenuItem.Name = "BusquedaToolStripMenuItem"
-        Me.BusquedaToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.BusquedaToolStripMenuItem.Text = "&Búsqueda"
-        '
         'AltaToolStripMenuItem
         '
         Me.AltaToolStripMenuItem.Name = "AltaToolStripMenuItem"
@@ -311,9 +305,14 @@ Partial Class MDI_Principal
         Me.AltaToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.AltaToolStripMenuItem.Text = "&Alta"
         '
+        'BusquedaToolStripMenuItem
+        '
+        Me.BusquedaToolStripMenuItem.Name = "BusquedaToolStripMenuItem"
+        Me.BusquedaToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.BusquedaToolStripMenuItem.Text = "&Búsqueda"
+        '
         'ModificaciónToolStripMenuItem
         '
-        Me.ModificaciónToolStripMenuItem.Enabled = False
         Me.ModificaciónToolStripMenuItem.Name = "ModificaciónToolStripMenuItem"
         Me.ModificaciónToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.ModificaciónToolStripMenuItem.Text = "&Modificación"
