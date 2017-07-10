@@ -32,6 +32,8 @@ Partial Class Form_Excel
         Me.lblValorCelda = New System.Windows.Forms.Label()
         Me.btnMuestraValorCelda = New System.Windows.Forms.Button()
         Me.numFila = New System.Windows.Forms.NumericUpDown()
+        Me.txtRutaNuevoExcel = New System.Windows.Forms.TextBox()
+        Me.btnCreaExcel = New System.Windows.Forms.Button()
         CType(Me.numFila, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -123,11 +125,31 @@ Partial Class Form_Excel
         Me.numFila.TabIndex = 11
         Me.numFila.Value = New Decimal(New Integer() {4, 0, 0, 0})
         '
+        'txtRutaNuevoExcel
+        '
+        Me.txtRutaNuevoExcel.Location = New System.Drawing.Point(143, 261)
+        Me.txtRutaNuevoExcel.Name = "txtRutaNuevoExcel"
+        Me.txtRutaNuevoExcel.Size = New System.Drawing.Size(290, 20)
+        Me.txtRutaNuevoExcel.TabIndex = 12
+        Me.txtRutaNuevoExcel.Text = "C:\Users\JuanCarlos\Documents\NuevoExcelEjemplo.xlsx"
+        '
+        'btnCreaExcel
+        '
+        Me.btnCreaExcel.Location = New System.Drawing.Point(298, 309)
+        Me.btnCreaExcel.Name = "btnCreaExcel"
+        Me.btnCreaExcel.Size = New System.Drawing.Size(135, 49)
+        Me.btnCreaExcel.TabIndex = 13
+        Me.btnCreaExcel.Text = "Crea Excel"
+        Me.btnCreaExcel.UseVisualStyleBackColor = True
+        Me.btnCreaExcel.UseWaitCursor = True
+        '
         'Form_Excel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(450, 261)
+        Me.ClientSize = New System.Drawing.Size(538, 411)
+        Me.Controls.Add(Me.btnCreaExcel)
+        Me.Controls.Add(Me.txtRutaNuevoExcel)
         Me.Controls.Add(Me.numFila)
         Me.Controls.Add(Me.btnMuestraValorCelda)
         Me.Controls.Add(Me.lblValorCelda)
@@ -156,4 +178,6 @@ Partial Class Form_Excel
     Friend WithEvents lblValorCelda As Label
     Friend WithEvents btnMuestraValorCelda As Button
     Friend WithEvents numFila As NumericUpDown
+    Friend WithEvents txtRutaNuevoExcel As TextBox
+    Friend WithEvents btnCreaExcel As Button
 End Class
