@@ -55,7 +55,7 @@ Public Class Form_Busqueda
             Dim indexEmpleado = lstListaEmpleados.SelectedIndices(i)
             Dim frmModificar = New Form_Modificacion()
             frmModificar.MdiParent = Me.MdiParent
-            frmModificar.empleadoAModificar = listaEmpleados(indexEmpleado)
+            frmModificar.Empleado = listaEmpleados(indexEmpleado)
             frmModificar.Show()
         Next
 

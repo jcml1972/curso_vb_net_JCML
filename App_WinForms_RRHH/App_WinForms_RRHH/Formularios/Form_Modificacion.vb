@@ -2,7 +2,16 @@
 
 Public Class Form_Modificacion
 
-    Public EmpleadoModificado, empleadoAModificar As Empleado
+    Private EmpleadoModificado, empleadoAModificar As Empleado
+
+    Public Property Empleado As Empleado
+        Get
+            Return empleadoAModificar
+        End Get
+        Set(value As Empleado)
+            empleadoAModificar = value
+        End Set
+    End Property
 
     Private Sub Form_Modificacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
