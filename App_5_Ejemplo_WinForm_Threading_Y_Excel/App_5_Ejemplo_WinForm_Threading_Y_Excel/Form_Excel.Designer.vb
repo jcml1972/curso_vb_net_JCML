@@ -41,7 +41,7 @@ Partial Class Form_Excel
         Me.txtRutaFichero.Name = "txtRutaFichero"
         Me.txtRutaFichero.Size = New System.Drawing.Size(295, 20)
         Me.txtRutaFichero.TabIndex = 0
-        Me.txtRutaFichero.Text = "D:\EjempoImportarExdcel.xlsx"
+        Me.txtRutaFichero.Text = "C:\Users\JuanCarlos\Documents\Ejemplo - Caso programacion excel.xlsx"
         '
         'Label1
         '
@@ -67,7 +67,7 @@ Partial Class Form_Excel
         Me.txtNombreHoja.Name = "txtNombreHoja"
         Me.txtNombreHoja.Size = New System.Drawing.Size(194, 20)
         Me.txtNombreHoja.TabIndex = 2
-        Me.txtNombreHoja.Text = "Hoja1"
+        Me.txtNombreHoja.Text = "Datos"
         '
         'Label3
         '
@@ -84,7 +84,7 @@ Partial Class Form_Excel
         Me.txtColumna.Name = "txtColumna"
         Me.txtColumna.Size = New System.Drawing.Size(70, 20)
         Me.txtColumna.TabIndex = 4
-        Me.txtColumna.Text = "A"
+        Me.txtColumna.Text = "F"
         '
         'Label4
         '
@@ -121,7 +121,7 @@ Partial Class Form_Excel
         Me.numFila.Name = "numFila"
         Me.numFila.Size = New System.Drawing.Size(93, 20)
         Me.numFila.TabIndex = 11
-        Me.numFila.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.numFila.Value = New Decimal(New Integer() {4, 0, 0, 0})
         '
         'Form_Excel
         '
