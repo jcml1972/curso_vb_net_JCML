@@ -1,12 +1,11 @@
-﻿
-Namespace Modelo
+﻿Namespace Modelo
+    Delegate Sub TipoDelAvisarEnModificacion(estado As Boolean)
 
-        ' CRUD
-        ' Create, Read, Update, Delete
-        ' Crear, Leer, Actualizar, Eliminar
-        Module EmpleadosCRUD
-        'Private listaEmpleados() As Empleado
+    ' CRUD: Create, Read, Update, Delete
+    ' Crear, Leer, Actualizar, Eliminar
+    Module EmpleadosCRUD
         Private listaEmpleados As List(Of Empleado)
+        Public avisarEnModificacion As TipoDelAvisarEnModificacion
 
         Public Sub Restaurar(persistenciaEmpleados As IPersistenciaEmpleados)
             listaEmpleados = New List(Of Empleado)()
@@ -15,24 +14,24 @@ Namespace Modelo
             arrayEmpleados = listaEmpleados.ToArray()
             persistenciaEmpleados.Importar(arrayEmpleados)
             listaEmpleados = arrayEmpleados.ToList()
+            avisarEnModificacion(True)
         End Sub
 
         Public Sub Grabar(persistenciaEmpleados As IPersistenciaEmpleados)
             persistenciaEmpleados.Exportar(listaEmpleados.ToArray())
+            avisarEnModificacion(False)
         End Sub
 
         Sub Crear(nuevoEmpleado As Empleado)
             ' Asignamos nuevo empleado
             listaEmpleados.Add(nuevoEmpleado)
+            avisarEnModificacion(True)
         End Sub
 
         Function Cantidad() As Integer
             Return listaEmpleados.Count
         End Function
 
-        'Function Leer(indice As Integer) As Empleado
-        '    Return listaEmpleados(indice)
-        'End Function
         Function BuscarEmpleados(nombre As String, apellido As String) As List(Of Empleado)
             nombre = nombre.ToUpper()
             apellido = apellido.ToUpper()
@@ -54,6 +53,7 @@ Namespace Modelo
 
         Sub Actualizar(indice As Integer, empleado As Empleado)
             listaEmpleados(indice) = empleado
+            avisarEnModificacion(True)
         End Sub
 
         Sub Actualizar(empleado As Empleado, empleadoModif As Empleado)
@@ -66,17 +66,20 @@ Namespace Modelo
         '' 0 1 2 3 4
         Sub Eliminar(indice As Integer)
             listaEmpleados.RemoveAt(indice)
+            avisarEnModificacion(True)
         End Sub
 
         Sub Eliminar(empleado As Empleado)
             listaEmpleados.Remove(empleado)
+            avisarEnModificacion(True)
         End Sub
 
         Sub Eliminar(empleados As List(Of Empleado))
             For Each empleado In empleados
                 Eliminar(empleado)
             Next
+            avisarEnModificacion(True)
         End Sub
     End Module
-    End Namespace
+End Namespace
 
