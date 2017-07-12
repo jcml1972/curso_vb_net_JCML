@@ -3,24 +3,20 @@
 Public Class Form_Alta
     Public nuevoEmpleado As Empleado
 
-
     Private Sub Form_Alta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MyBase.Activate()
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-
         ' TODO: Impedir duplicados
         ' TODO: Hacer las validaciones
-
         Try
-
             ' Asignamos valores
             nuevoEmpleado.nombre = txtNombre.Text
             nuevoEmpleado.apellidos = txtApellidos.Text
             nuevoEmpleado.genero = CType(cmbGenero.SelectedIndex + 1, TipoGenero)
             nuevoEmpleado.categoria = CType(domCategoria.SelectedIndex + 1, TipoCategoria)
-            nuevoEmpleado.retribucionFija = numRetribFija.Value + 1
+            nuevoEmpleado.retribucionFija = numRetribFija.Value
             EmpleadosCRUD.Crear(nuevoEmpleado)
             Me.Close()
             MessageBox.Show("Empleado creado: " & nuevoEmpleado.ToString())
@@ -47,13 +43,14 @@ Public Class Form_Alta
         domCategoria.SelectedIndex = -1
         numRetribFija.Value = 0
     End Sub
+
     Private Sub AlActivarseFormulario(sender As Object, e As EventArgs) Handles Me.Activated
         Me.MdiParent.Text = "Alta Empleado"
     End Sub
+
     Private Sub AlDesactivarseFormulario(sender As Object, e As EventArgs) _
         Handles Me.Deactivate
         Me.MdiParent.Text = "Aplicación Empleados"
     End Sub
-
 
 End Class
