@@ -30,8 +30,8 @@ Namespace Modelo
                 Dim nuevoEmpleado As Empleado
                 nuevoEmpleado.nombre = valorNombre
                 nuevoEmpleado.apellidos = DameValorCelda(NombreFichero, "Hoja1", "B", fila)
-                nuevoEmpleado.genero = CInt(DameValorCelda(NombreFichero, "Hoja1", "C", fila))
-                nuevoEmpleado.categoria = CInt(DameValorCelda(NombreFichero, "Hoja1", "D", fila))
+                nuevoEmpleado.genero = CType(DameValorCelda(NombreFichero, "Hoja1", "C", fila), TipoGenero)
+                nuevoEmpleado.categoria = CType(DameValorCelda(NombreFichero, "Hoja1", "D", fila), TipoCategoria)
                 nuevoEmpleado.retribucionFija = CSng(DameValorCelda(NombreFichero, "Hoja1", "E", fila))
                 listaEmpleados.Add(nuevoEmpleado)
                 fila = fila + 1

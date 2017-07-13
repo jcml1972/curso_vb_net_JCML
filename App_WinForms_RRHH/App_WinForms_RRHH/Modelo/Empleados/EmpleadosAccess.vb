@@ -21,10 +21,12 @@ Namespace Modelo
 
         Public Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Importar
             Dim listaEmpleados As New List(Of Empleado)
-            Dim cadena_conexion As String = Constantes.CADENA_CONEX_ACCESS & NombreFichero
+            'Dim cadena_conexion As String = Constantes.CADENA_CONEX_ACCESS & NombreFichero
+            Dim cadena_conexion = CrearCadenaConexion(PROVEEDOR_ACCESS, NombreFichero)
 
             Using conexionDB As New OleDbConnection(cadena_conexion)
                 Dim consultaSQL = "SELECT Nombre, Apellidos, Genero, Categoria, Retribucion_Fija " & "FROM Empleado ORDER BY Nombre, Apellidos ASC; "
+
                 Console.WriteLine(consultaSQL)
 
                 Dim comando As New OleDbCommand(consultaSQL, conexionDB)
@@ -34,11 +36,11 @@ Namespace Modelo
 
                     Do While dataReader.Read()
                         Dim nuevoeEmpleado As New Empleado()
-                        nuevoeEmpleado.nombre = dataReader(0)
-                        nuevoeEmpleado.apellidos = dataReader(1)
-                        nuevoeEmpleado.genero = dataReader(2)
-                        nuevoeEmpleado.categoria = dataReader(3)
-                        nuevoeEmpleado.retribucionFija = dataReader(4)
+                        nuevoeEmpleado.nombre = CType(dataReader(0), String)
+                        nuevoeEmpleado.apellidos = CType(dataReader(1), String)
+                        nuevoeEmpleado.genero = CType(dataReader(2), TipoGenero)
+                        nuevoeEmpleado.categoria = CType(dataReader(3), TipoCategoria)
+                        nuevoeEmpleado.retribucionFija = CSng(dataReader(4))
                         listaEmpleados.Add(nuevoeEmpleado)
                     Loop
 
@@ -47,14 +49,19 @@ Namespace Modelo
                     MessageBox.Show("Error al exportar Access " & ex.Message)
                     Return False
                 End Try
+                Dim comandoContar As OleDbCommand = conexionDB.CreateCommand()
+                comandoContar.CommandText = "SELECT COUNT(*) FROM Empleado"
+                Dim numEmpleados As Integer = CInt(comandoContar.ExecuteScalar())
+                MessageBox.Show("Se han importado " & numEmpleados & " empleados")
             End Using
             arrayEmpleados = listaEmpleados.ToArray
             Return True
-            MessageBox.Show("Importado de " & NombreFichero)
+
         End Function
 
         Public Function Exportar(arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Exportar
-            Dim cadena_conexion As String = Constantes.CADENA_CONEX_ACCESS & NombreFichero
+            'Dim cadena_conexion As String = Constantes.CADENA_CONEX_ACCESS & NombreFichero
+            Dim cadena_conexion = CrearCadenaConexion(PROVEEDOR_ACCESS, NombreFichero)
             ' Si la BD tuviera password habría que añadir, añadir separado por punto y coma, usuario y password
             ' TODO: Añadir ";User Id=admin;Password=Contraseña_1234"
             Using conexionDB As New OleDbConnection(cadena_conexion)
@@ -84,6 +91,13 @@ Namespace Modelo
             End Using
             Return True
             MessageBox.Show("Exportado a " & NombreFichero)
+        End Function
+
+        Public Shared Function CrearCadenaConexion(proveedor As String, fuente_datos As String) As String
+            Dim constructor As New OleDbConnectionStringBuilder
+            constructor.Provider = proveedor
+            constructor.DataSource = fuente_datos
+            Return constructor.ConnectionString
         End Function
     End Class
 
