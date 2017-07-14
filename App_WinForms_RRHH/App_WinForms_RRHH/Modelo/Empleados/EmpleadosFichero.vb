@@ -1,23 +1,24 @@
 ﻿Namespace Modelo
-    Class EmpleadosFichero
+    Public Class EmpleadosFichero
+        Inherits EmpleadosBaseImportador
         Implements IPersistenciaEmpleados
 
-        Private _nombreFichero As String
+        'Private _nombreFichero As String
 
-        Public Property NombreFichero As String Implements IPersistenciaEmpleados.nombreFichero
-            Get
-                Return _nombreFichero
-            End Get
-            Set(value As String)
-                If (value = "") Then
-                    Throw New Exception("No se ha establecido el nombre del fichero")
-                Else
-                    _nombreFichero = value
-                End If
-            End Set
-        End Property
+        'Public Property NombreFichero As String Implements IPersistenciaEmpleados.nombreFichero
+        '    Get
+        '        Return _nombreFichero
+        '    End Get
+        '    Set(value As String)
+        '        If (value = "") Then
+        '            Throw New Exception("No se ha establecido el nombre del fichero")
+        '        Else
+        '            _nombreFichero = value
+        '        End If
+        '    End Set
+        'End Property
 
-        Public Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Importar
+        Public Overrides Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Importar
             ' Declarar variables:
             '   arrayRegistros de tipo cadena
             Dim arrayRegistros() As String
@@ -63,7 +64,7 @@
             Return False
         End Function
 
-        Public Function Exportar(arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Exportar
+        Public Overrides Function Exportar(arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Exportar
             Dim fichero As System.IO.StreamWriter
             fichero = My.Computer.FileSystem.OpenTextFileWriter(NombreFichero, False)
             For i = 0 To arrayEmpleados.Length - 1 Step 1

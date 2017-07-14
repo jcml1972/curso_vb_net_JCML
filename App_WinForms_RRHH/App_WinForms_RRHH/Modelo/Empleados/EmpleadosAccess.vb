@@ -3,23 +3,25 @@
 Namespace Modelo
 
     Public Class EmpleadosAccess
+        Inherits EmpleadosBaseImportador
         Implements IPersistenciaEmpleados
-        Private _nombreFichero As String
 
-        Public Property NombreFichero As String Implements IPersistenciaEmpleados.nombreFichero
-            Get
-                Return _nombreFichero
-            End Get
-            Set(value As String)
-                If (value = "") Then
-                    Throw New Exception("No se ha establecido el nombre del fichero")
-                Else
-                    _nombreFichero = value
-                End If
-            End Set
-        End Property
+        'Private _nombreFichero As String
 
-        Public Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Importar
+        'Public Property NombreFichero As String Implements IPersistenciaEmpleados.nombreFichero
+        '    Get
+        '        Return _nombreFichero
+        '    End Get
+        '    Set(value As String)
+        '        If (value = "") Then
+        '            Throw New Exception("No se ha establecido el nombre del fichero")
+        '        Else
+        '            _nombreFichero = value
+        '        End If
+        '    End Set
+        'End Property
+
+        Public Overrides Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Importar
             Dim listaEmpleados As New List(Of Empleado)
             'Dim cadena_conexion As String = Constantes.CADENA_CONEX_ACCESS & NombreFichero
             Dim cadena_conexion = CrearCadenaConexion(PROVEEDOR_ACCESS, NombreFichero)
@@ -59,7 +61,7 @@ Namespace Modelo
 
         End Function
 
-        Public Function Exportar(arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Exportar
+        Public Overrides Function Exportar(arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Exportar
             'Dim cadena_conexion As String = Constantes.CADENA_CONEX_ACCESS & NombreFichero
             Dim cadena_conexion = CrearCadenaConexion(PROVEEDOR_ACCESS, NombreFichero)
             ' Si la BD tuviera password habría que añadir, añadir separado por punto y coma, usuario y password
