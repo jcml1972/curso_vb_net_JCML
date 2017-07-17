@@ -1,76 +1,85 @@
 ﻿Imports App_WinForms_RRHH.Modelo
 
 Public Class Form_Modificacion
-
-    Private EmpleadoModificado, empleadoAModificar As Empleado
+    Private _empleado, _empleadoModif As Empleado
 
     Public Property Empleado As Empleado
         Get
-            Return empleadoAModificar
+            Return _empleado
         End Get
         Set(value As Empleado)
-            empleadoAModificar = value
+            _empleado = value
         End Set
     End Property
-
+    Public Property EmpleadoModif As Empleado
+        Get
+            Return _empleadoModif
+        End Get
+        Set(value As Empleado)
+            _empleadoModif = value
+        End Set
+    End Property
     Private Sub Form_Modificacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        txtNombre.Text = empleadoAModificar.nombre
-        txtApellidos.Text = empleadoAModificar.apellidos
-        cmbGenero.SelectedIndex = empleadoAModificar.genero
-        domCategoria.SelectedIndex = empleadoAModificar.categoria
-        numRetribFija.Value = CType(empleadoAModificar.retribucionFija, Decimal)
-
-        btnGuardar.Enabled = True
-
+        txtNombre.Text = Empleado.nombre
+        txtApellidos.Text = Empleado.apellidos
+        cmbGenero.SelectedIndex = Empleado.genero - 1
+        domCategoria.SelectedIndex = Empleado.categoria - 1
+        numRetribucion.Value = CType(Empleado.retribucionFija, Decimal)
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-        EmpleadoModificado = New Empleado()
+        If txtNombre.Text = "" Then
+            MessageBox.Show("Introduzca un nombre")
+            Return
+        End If
+        Try
+            _empleadoModif = New Empleado()
+            ' Asignamos valores
+            _empleadoModif.nombre = txtNombre.Text
+            _empleadoModif.apellidos = txtApellidos.Text
+            _empleadoModif.genero = CType(cmbGenero.SelectedIndex + 1, TipoGenero)
+            _empleadoModif.categoria = CType(domCategoria.SelectedIndex + 1, TipoCategoria)
+            _empleadoModif.retribucionFija = numRetribucion.Value
 
-        EmpleadoModificado.nombre = txtNombre.Text
-        EmpleadoModificado.apellidos = txtApellidos.Text
-        EmpleadoModificado.genero = CType(cmbGenero.SelectedIndex, TipoGenero)
-        EmpleadoModificado.categoria = CType(domCategoria.SelectedIndex, TipoCategoria)
-        EmpleadoModificado.retribucionFija = numRetribFija.Value
+            EmpleadosCRUD.Actualizar(Empleado, EmpleadoModif)
 
-        EmpleadosCRUD.Actualizar(empleadoAModificar, EmpleadoModificado)
-        MessageBox.Show("Se ha modificado al empleado: " & EmpleadoModificado.nombre & " " & EmpleadoModificado.apellidos)
-        Me.Close()
-
-    End Sub
-
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        Dim mdiPrincipal As MDI_Principal
-        mdiPrincipal = CType(Me.MdiParent, MDI_Principal)
-        MDI_Principal.AbrirBusqueda()
+            Me.Close()
+            MessageBox.Show("Empleado modificado: " & Empleado.ToString())
+        Catch ex As Exception
+            MessageBox.Show("Error al guardar")
+        End Try
     End Sub
 
     Private Sub texto_TextChanged(sender As Object, e As EventArgs) _
         Handles txtNombre.TextChanged, txtApellidos.TextChanged,
-        cmbGenero.SelectedValueChanged, domCategoria.SelectedItemChanged, numRetribFija.ValueChanged
+        cmbGenero.SelectedValueChanged, domCategoria.SelectedItemChanged,
+        numRetribucion.ValueChanged
+
         btnGuardar.Enabled = txtNombre.Text <> "" _
             And txtApellidos.Text <> "" _
             And cmbGenero.SelectedIndex >= 0 _
             And domCategoria.SelectedIndex >= 0 _
-            And numRetribFija.Value > 0
+            And numRetribucion.Value > 0
+
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-        txtNombre.Clear()
         txtApellidos.Clear()
+        txtNombre.Clear()
         cmbGenero.SelectedIndex = -1
         domCategoria.Text = ""
         domCategoria.SelectedIndex = -1
-        numRetribFija.Value = 0
-    End Sub
-    Private Sub AlActivarseFormulario(sender As Object, e As EventArgs) Handles Me.Activated
-        Me.MdiParent.Text = "Modificación de Empleado"
-    End Sub
-    Private Sub AlDesactivarseFormulario(sender As Object, e As EventArgs) _
-        Handles Me.Deactivate
-        Me.MdiParent.Text = "Aplicación Empleados"
+        numRetribucion.Value = 0
     End Sub
 
+    Public Sub AlActivarseFormulario(sender As Object, e As EventArgs) _
+        Handles Me.Activated
+        Me.MdiParent.Text = "Modificacion empleado"
+    End Sub
+    Public Sub AlDesactivarseFormulario(sender As Object, e As EventArgs) _
+        Handles Me.Deactivate
+
+        Me.MdiParent.Text = "Aplicación empleados"
+    End Sub
 End Class

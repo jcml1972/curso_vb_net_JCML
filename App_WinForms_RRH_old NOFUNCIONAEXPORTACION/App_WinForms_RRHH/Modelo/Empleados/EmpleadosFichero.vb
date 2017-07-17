@@ -1,5 +1,5 @@
 ﻿Namespace Modelo
-    Class EmpleadosFichero
+    Public Class EmpleadosFichero
         Inherits EmpleadosBaseImportador
 
         Public Overrides Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean
@@ -14,7 +14,6 @@
                 If My.Computer.FileSystem.FileExists(NombreFichero) Then
                     '   leer todo el fichero y asignar a textoFichero
                     textoFichero = My.Computer.FileSystem.ReadAllText(NombreFichero)
-
                     '   asignar a arrayRegistros el textoFichero separado con Split
                     arrayRegistros = textoFichero.Split(vbCr.ToCharArray()(0))
                     ' Bucle Para numeroRegistro desde 0 hasta ultimo elemento de arrayRegistros
@@ -33,8 +32,8 @@
                     Next
                     Return True
                 Else
-                    MessageBox.Show("No se encuentra el fichero.")
-                    Console.WriteLine("No se encuentra el fichero. Ponga un fichero en  C:\Users\sinensia100\" & NombreFichero)
+                    MessageBox.Show("No se encuentra el fichero")
+                    Console.WriteLine("No se encuentra el fichero. Ponga un fichero en " & NombreFichero)
                 End If
             Catch ex As IndexOutOfRangeException
                 Console.WriteLine("Hay mas elementos de los permitidos")
@@ -42,25 +41,19 @@
                 Console.WriteLine(ex.StackTrace)
 
             Catch ex As System.IO.FileNotFoundException
-                Console.WriteLine("No se encuentra el fichero. Ponga un fichero en  C:\Users\sinensia100\" & NombreFichero)
+                Console.WriteLine("No se encuentra el fichero. Ponga un fichero en " & NombreFichero)
             Catch ex As Exception
                 Console.WriteLine("Excepción de cualquier tipo")
             End Try
             Return False
         End Function
-        ' Graba un arrray de empleados en un fichero CSV y devuelve true si se ha grabado
-        ' o devuelve false si ha habido un fallo de escritura
-        Public Overrides Function Exportar(arrayEmpleados() As Empleado) As Boolean
 
+        Public Overrides Function Exportar(arrayEmpleados() As Empleado) As Boolean
             Dim fichero As System.IO.StreamWriter
             fichero = My.Computer.FileSystem.OpenTextFileWriter(NombreFichero, False)
-
             For i = 0 To arrayEmpleados.Length - 1 Step 1
                 fichero.WriteLine(arrayEmpleados(i).nombre & "," &
-                                  arrayEmpleados(i).apellidos & "," &
-                                  arrayEmpleados(i).genero & "," &
-                                  arrayEmpleados(i).categoria & "," &
-                                  arrayEmpleados(i).retribucionFija)
+                                  arrayEmpleados(i).apellidos & "," & arrayEmpleados(i).genero & "," & arrayEmpleados(i).categoria & "," & arrayEmpleados(i).retribucionFija)
             Next
             fichero.Close()
             Return True
@@ -68,3 +61,4 @@
 
     End Class
 End Namespace
+

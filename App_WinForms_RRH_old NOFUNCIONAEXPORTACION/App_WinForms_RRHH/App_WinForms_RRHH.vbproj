@@ -76,8 +76,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo\EmpleadosBaseOleDB.vb" />
-    <Compile Include="Modelo\Empleados\EmpleadosBaseImportador.vb" />
     <Compile Include="Formularios\Form_Alta.Designer.vb">
       <DependentUpon>Form_Alta.vb</DependentUpon>
     </Compile>
@@ -105,6 +103,8 @@
     <Compile Include="Modelo\Constantes.vb" />
     <Compile Include="Modelo\Empleados\Empleado.vb" />
     <Compile Include="Modelo\Empleados\EmpleadosAccess.vb" />
+    <Compile Include="Modelo\Empleados\EmpleadosBaseImportador.vb" />
+    <Compile Include="Modelo\Empleados\EmpleadosBaseOleDB.vb" />
     <Compile Include="Modelo\Empleados\EmpleadosCRUD.vb" />
     <Compile Include="Modelo\Empleados\EmpleadosExcel.vb" />
     <Compile Include="Modelo\Empleados\EmpleadosFichero.vb" />
