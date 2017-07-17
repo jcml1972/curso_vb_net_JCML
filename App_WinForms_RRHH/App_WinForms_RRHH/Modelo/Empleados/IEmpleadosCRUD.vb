@@ -1,7 +1,7 @@
 ﻿Namespace Modelo
     Public Delegate Sub TipoDelAvisarEnModificacion(estado As Boolean)
 
-    Public Interface IEmpledosCRUD
+    Public Interface IEmpleadosCRUD
         ReadOnly Property Cantidad As Integer
 
         Sub EstablecerAvisarEnModificacion(funcionDelegada As TipoDelAvisarEnModificacion)

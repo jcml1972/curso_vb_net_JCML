@@ -2,21 +2,21 @@
     ' CRUD: Create, Read, Update, Delete
     ' Crear, Leer, Actualizar, Eliminar
     Class EmpleadosListaCRUD
-        Implements IEmpledosCRUD
+        Implements IEmpleadosCRUD
         Private listaEmpleados As List(Of Empleado)
         Public avisarEnModicacion As TipoDelAvisarEnModificacion
 
-        Private ReadOnly Property IEmpledosCRUD_Cantidad As Integer Implements IEmpledosCRUD.Cantidad
+        Private ReadOnly Property IEmpledosCRUD_Cantidad As Integer Implements IEmpleadosCRUD.Cantidad
             Get
                 Return listaEmpleados.Count
             End Get
         End Property
 
-        Public Sub EstablecerAvisarEnModificacion(funcionDelegada As TipoDelAvisarEnModificacion) Implements IEmpledosCRUD.EstablecerAvisarEnModificacion
+        Public Sub EstablecerAvisarEnModificacion(funcionDelegada As TipoDelAvisarEnModificacion) Implements IEmpleadosCRUD.EstablecerAvisarEnModificacion
             avisarEnModicacion = funcionDelegada
         End Sub
 
-        Public Sub Restaurar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpledosCRUD.Restaurar
+        Public Sub Restaurar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpleadosCRUD.Restaurar
             listaEmpleados = New List(Of Empleado)()
             ' EmpleadosFichero.LeerFichero(listaEmpleados.ToArray())
             Dim arrayEmpleados() As Empleado
@@ -25,17 +25,17 @@
             listaEmpleados = arrayEmpleados.ToList()
             avisarEnModicacion(True)
         End Sub
-        Public Sub Grabar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpledosCRUD.Grabar
+        Public Sub Grabar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpleadosCRUD.Grabar
             persistenciaEmpleados.Exportar(listaEmpleados.ToArray())
             avisarEnModicacion(False)
         End Sub
-        Sub Crear(nuevoEmpleado As Empleado) Implements IEmpledosCRUD.Crear
+        Sub Crear(nuevoEmpleado As Empleado) Implements IEmpleadosCRUD.Crear
             ' Asignamos nuevo empleado
             listaEmpleados.Add(nuevoEmpleado)
             avisarEnModicacion(True)
         End Sub
 
-        Function BuscarEmpleados(nombre As String, apellido As String) As List(Of Empleado) Implements IEmpledosCRUD.BuscarEmpleados
+        Function BuscarEmpleados(nombre As String, apellido As String) As List(Of Empleado) Implements IEmpleadosCRUD.BuscarEmpleados
             nombre = nombre.ToUpper()
             apellido = apellido.ToUpper()
             BuscarEmpleados = New List(Of Empleado)()
@@ -60,7 +60,7 @@
             listaEmpleados(indice) = empleado
             avisarEnModicacion(True)
         End Sub
-        Sub Actualizar(empleado As Empleado, empleadoModif As Empleado) Implements IEmpledosCRUD.Actualizar
+        Sub Actualizar(empleado As Empleado, empleadoModif As Empleado) Implements IEmpleadosCRUD.Actualizar
             Dim i = listaEmpleados.IndexOf(empleado)
             Actualizar(i, empleadoModif)
         End Sub
@@ -72,11 +72,11 @@
             listaEmpleados.RemoveAt(indice)
             avisarEnModicacion(True)
         End Sub
-        Sub Eliminar(empleado As Empleado) Implements IEmpledosCRUD.Eliminar
+        Sub Eliminar(empleado As Empleado) Implements IEmpleadosCRUD.Eliminar
             listaEmpleados.Remove(empleado)
             avisarEnModicacion(True)
         End Sub
-        Sub Eliminar(empleados As List(Of Empleado)) Implements IEmpledosCRUD.Eliminar
+        Sub Eliminar(empleados As List(Of Empleado)) Implements IEmpleadosCRUD.Eliminar
             For Each empleado In empleados
                 Eliminar(empleado)
             Next
