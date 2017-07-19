@@ -23,10 +23,8 @@ Namespace Modelo
             avisarEnModificacion(False)
         End Sub
 
-        Public Function BuscarEmpleados(nombre As String, apellidos As String) As List(Of Empleado) Implements IEmpleadosCRUD.BuscarEmpleados
-            Dim consultaSQL = "SELECT Nombre, Apellidos, Genero, Categoria, Retribucion_Fija " _
-                    & " FROM Empleado "
-
+        Public Function SqlWhereNombreApellidos(nombre As String, apellidos As String) As String
+            Dim consultaSQL = ""
             If nombre <> "" Or apellidos <> "" Then
                 consultaSQL = consultaSQL & " WHERE "
                 If nombre <> "" Then
@@ -36,9 +34,17 @@ Namespace Modelo
                     consultaSQL = consultaSQL & " AND "
                 End If
                 If apellidos <> "" Then
-                    consultaSQL = consultaSQL & " apellido LIKE '%' + @apellidos + '%' "
+                    consultaSQL = consultaSQL & " apellidos LIKE '%' + @apellidos + '%' "
                 End If
             End If
+            Return consultaSQL
+        End Function
+
+        Public Function BuscarEmpleados(nombre As String, apellidos As String) As List(Of Empleado) Implements IEmpleadosCRUD.BuscarEmpleados
+            Dim consultaSQL = "SELECT Nombre, Apellidos, Genero, Categoria, Retribucion_Fija " _
+                    & " FROM Empleado "
+
+            consultaSQL &= SqlWhereNombreApellidos(nombre, apellidos)
             consultaSQL = consultaSQL & " ORDER BY Nombre, Apellidos ASC;"
 
             BuscarEmpleados = New List(Of Empleado)
@@ -86,15 +92,51 @@ Namespace Modelo
         End Sub
 
         Public Sub Actualizar(empleado As Empleado, empleadoModif As Empleado) Implements IEmpleadosCRUD.Actualizar
-            'BuscarEmpleados(empleado.nombre, empleado.apellidos)
+            If empleado.nombre = "" Or empleado.apellidos = "" Then
+                Throw New ArgumentException()
+            End If
+            Dim consultaSQL = "UPDATE empleado SET Nombre = @nombreMod, Apellidos = @apellidosMod, Genero = @generoMod, " _
+                              & "Categoria = @categoriaMod, Retribucion_Fija = @retribucionFijaMod " _
+                              & " WHERE Nombre = @nombre AND Apellidos = @apellidos ; "
+            'consultaSQL &= SqlWhereNombreApellidos(empleado.nombre, empleado.apellidos)
+            Dim comando As OleDbCommand = ComandoConConexion(cadena_conexion, consultaSQL)
+
+            comando.AñadirParametro("@nombreMod", empleadoModif.nombre)
+            comando.AñadirParametro("@apellidosMod", empleadoModif.apellidos)
+            comando.AñadirParametro("@generoMod", empleadoModif.genero, , DbType.Int32)
+            comando.AñadirParametro("@categoriaMod", empleadoModif.categoria, , DbType.Int32)
+            comando.AñadirParametro("@retribucionFijaMod", empleadoModif.retribucionFija, , DbType.Single)
+
+            comando.AñadirParametro("@nombre", empleado.nombre)
+            comando.AñadirParametro("@apellidos", empleado.apellidos)
+
+            comando.ExecuteNonQuery()
+            comando.Cerrar()
+            avisarEnModificacion(True)
+
         End Sub
 
         Public Sub Eliminar(empleado As Empleado) Implements IEmpleadosCRUD.Eliminar
-            Throw New NotImplementedException()
+            If empleado.nombre = "" Or empleado.apellidos = "" Then
+                Throw New ArgumentException()
+            End If
+            Dim consultaSQL = "DELETE FROM empleado   "
+            consultaSQL &= SqlWhereNombreApellidos(empleado.nombre, empleado.apellidos)
+            Dim comando As OleDbCommand = ComandoConConexion(cadena_conexion, consultaSQL)
+
+            comando.AñadirParametro("@nombre", empleado.nombre)
+            comando.AñadirParametro("@apellidos", empleado.apellidos)
+
+            comando.ExecuteNonQuery()
+            comando.Cerrar()
+            avisarEnModificacion(True)
         End Sub
 
         Public Sub Eliminar(empleados As List(Of Empleado)) Implements IEmpleadosCRUD.Eliminar
-            Throw New NotImplementedException()
+            For Each empleado In empleados
+                Eliminar(empleado)
+            Next
+            avisarEnModificacion(True)
         End Sub
 
     End Class
