@@ -10,7 +10,10 @@ Namespace Modelo
 
         Public ReadOnly Property Cantidad As Integer Implements IEmpleadosCRUD.Cantidad
             Get
-                Throw New NotImplementedException()
+                Dim comando = ComandoConConexion(cadena_conexion, "SELECT  COUNT(*) FROM Empleado ")
+                Cantidad = comando.ExecuteScalar()
+                comando.Cerrar()
+                Return Cantidad
             End Get
         End Property
 
