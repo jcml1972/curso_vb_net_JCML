@@ -4,7 +4,7 @@
     Class EmpleadosListaCRUD
         Implements IEmpleadosCRUD
         Private listaEmpleados As List(Of Empleado)
-        Public avisarEnModicacion As TipoDelAvisarEnModificacion
+        Public avisarEnModificacion As TipoDelAvisarEnModificacion
 
         Private ReadOnly Property IEmpledosCRUD_Cantidad As Integer Implements IEmpleadosCRUD.Cantidad
             Get
@@ -13,7 +13,7 @@
         End Property
 
         Public Sub EstablecerAvisarEnModificacion(funcionDelegada As TipoDelAvisarEnModificacion) Implements IEmpleadosCRUD.EstablecerAvisarEnModificacion
-            avisarEnModicacion = funcionDelegada
+            avisarEnModificacion = funcionDelegada
         End Sub
 
         Public Sub Restaurar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpleadosCRUD.Restaurar
@@ -23,16 +23,16 @@
             arrayEmpleados = listaEmpleados.ToArray()
             persistenciaEmpleados.Importar(arrayEmpleados)
             listaEmpleados = arrayEmpleados.ToList()
-            avisarEnModicacion(True)
+            avisarEnModificacion(True)
         End Sub
         Public Sub Grabar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpleadosCRUD.Grabar
             persistenciaEmpleados.Exportar(listaEmpleados.ToArray())
-            avisarEnModicacion(False)
+            avisarEnModificacion(False)
         End Sub
         Sub Crear(nuevoEmpleado As Empleado) Implements IEmpleadosCRUD.Crear
             ' Asignamos nuevo empleado
             listaEmpleados.Add(nuevoEmpleado)
-            avisarEnModicacion(True)
+            avisarEnModificacion(True)
         End Sub
 
         Function BuscarEmpleados(nombre As String, apellido As String) As List(Of Empleado) Implements IEmpleadosCRUD.BuscarEmpleados
@@ -58,7 +58,7 @@
         End Function
         Sub Actualizar(indice As Integer, empleado As Empleado)
             listaEmpleados(indice) = empleado
-            avisarEnModicacion(True)
+            avisarEnModificacion(True)
         End Sub
         Sub Actualizar(empleado As Empleado, empleadoModif As Empleado) Implements IEmpleadosCRUD.Actualizar
             Dim i = listaEmpleados.IndexOf(empleado)
@@ -70,17 +70,17 @@
         '' 0 1 2 3 4
         Sub Eliminar(indice As Integer)
             listaEmpleados.RemoveAt(indice)
-            avisarEnModicacion(True)
+            avisarEnModificacion(True)
         End Sub
         Sub Eliminar(empleado As Empleado) Implements IEmpleadosCRUD.Eliminar
             listaEmpleados.Remove(empleado)
-            avisarEnModicacion(True)
+            avisarEnModificacion(True)
         End Sub
         Sub Eliminar(empleados As List(Of Empleado)) Implements IEmpleadosCRUD.Eliminar
             For Each empleado In empleados
                 Eliminar(empleado)
             Next
-            avisarEnModicacion(True)
+            avisarEnModificacion(True)
         End Sub
 
     End Class
