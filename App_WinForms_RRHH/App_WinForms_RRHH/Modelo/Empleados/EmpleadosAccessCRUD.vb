@@ -26,23 +26,6 @@ Namespace Modelo
             avisarEnModificacion(False)
         End Sub
 
-        Public Function SqlWhereNombreApellidos(nombre As String, apellidos As String) As String
-            Dim consultaSQL = ""
-            If nombre <> "" Or apellidos <> "" Then
-                consultaSQL = consultaSQL & " WHERE "
-                If nombre <> "" Then
-                    consultaSQL = consultaSQL & " nombre LIKE '%' + @nombre + '%' "
-                End If
-                If nombre <> "" And apellidos <> "" Then
-                    consultaSQL = consultaSQL & " AND "
-                End If
-                If apellidos <> "" Then
-                    consultaSQL = consultaSQL & " apellidos LIKE '%' + @apellidos + '%' "
-                End If
-            End If
-            Return consultaSQL
-        End Function
-
         Public Function BuscarEmpleados(nombre As String, apellidos As String) As List(Of Empleado) Implements IEmpleadosCRUD.BuscarEmpleados
             Dim consultaSQL = "SELECT Nombre, Apellidos, Genero, Categoria, Retribucion_Fija " _
                     & " FROM Empleado "
@@ -53,24 +36,24 @@ Namespace Modelo
             BuscarEmpleados = New List(Of Empleado)
 
             Dim comando = ComandoConConexion(cadena_conexion, consultaSQL)
-                Try
-                    comando.AñadirParametro("@nombre", nombre)
-                    comando.AñadirParametro("@apellidos", apellidos)
+            Try
+                comando.AñadirParametro("@nombre", nombre)
+                comando.AñadirParametro("@apellidos", apellidos)
 
                 Dim dataReader As OleDbDataReader = comando.ExecuteReader()
-                    Do While dataReader.Read()
-                        Dim nuevoEmpleado As New Empleado()
-                        nuevoEmpleado.nombre = CType(dataReader(0), String)
-                        nuevoEmpleado.apellidos = dataReader.GetString(1)
-                        nuevoEmpleado.genero = CType(dataReader(2), TipoGenero)
-                        nuevoEmpleado.categoria = CType(dataReader(3), TipoCategoria)
-                        nuevoEmpleado.retribucionFija = CType(dataReader(4), Single)
-                        BuscarEmpleados.Add(nuevoEmpleado)
-                    Loop
-                    dataReader.Close()
-                Catch ex As Exception
-                    MessageBox.Show("Error al buscar " & ex.Message)
-                End Try
+                Do While dataReader.Read()
+                    Dim nuevoEmpleado As New Empleado()
+                    nuevoEmpleado.nombre = CType(dataReader(0), String)
+                    nuevoEmpleado.apellidos = dataReader.GetString(1)
+                    nuevoEmpleado.genero = CType(dataReader(2), TipoGenero)
+                    nuevoEmpleado.categoria = CType(dataReader(3), TipoCategoria)
+                    nuevoEmpleado.retribucionFija = CType(dataReader(4), Single)
+                    BuscarEmpleados.Add(nuevoEmpleado)
+                Loop
+                dataReader.Close()
+            Catch ex As Exception
+                MessageBox.Show("Error al buscar " & ex.Message)
+            End Try
             comando.Cerrar()
         End Function
 
