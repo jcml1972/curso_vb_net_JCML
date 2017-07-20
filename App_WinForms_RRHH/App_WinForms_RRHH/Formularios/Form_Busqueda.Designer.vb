@@ -33,6 +33,9 @@ Partial Class Form_Busqueda
         Me.btnAlta = New System.Windows.Forms.Button()
         Me.btnModificacion = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtEmpl_Totales = New System.Windows.Forms.TextBox()
+        Me.txtEmpl_Encontrados = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'lstListaEmpleados
@@ -95,7 +98,7 @@ Partial Class Form_Busqueda
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(39, 166)
+        Me.Label4.Location = New System.Drawing.Point(39, 172)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(186, 20)
         Me.Label4.TabIndex = 6
@@ -139,11 +142,39 @@ Partial Class Form_Busqueda
         Me.btnCerrar.Text = "Cerrar"
         Me.btnCerrar.UseVisualStyleBackColor = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(39, 146)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(145, 20)
+        Me.Label5.TabIndex = 11
+        Me.Label5.Text = "Empleados totales:"
+        '
+        'txtEmpl_Totales
+        '
+        Me.txtEmpl_Totales.Location = New System.Drawing.Point(231, 142)
+        Me.txtEmpl_Totales.Name = "txtEmpl_Totales"
+        Me.txtEmpl_Totales.ReadOnly = True
+        Me.txtEmpl_Totales.Size = New System.Drawing.Size(79, 26)
+        Me.txtEmpl_Totales.TabIndex = 12
+        '
+        'txtEmpl_Encontrados
+        '
+        Me.txtEmpl_Encontrados.Location = New System.Drawing.Point(231, 171)
+        Me.txtEmpl_Encontrados.Name = "txtEmpl_Encontrados"
+        Me.txtEmpl_Encontrados.ReadOnly = True
+        Me.txtEmpl_Encontrados.Size = New System.Drawing.Size(78, 26)
+        Me.txtEmpl_Encontrados.TabIndex = 13
+        '
         'Form_Busqueda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(426, 445)
+        Me.Controls.Add(Me.txtEmpl_Encontrados)
+        Me.Controls.Add(Me.txtEmpl_Totales)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.btnModificacion)
         Me.Controls.Add(Me.btnAlta)
@@ -175,4 +206,7 @@ Partial Class Form_Busqueda
     Friend WithEvents btnAlta As Button
     Friend WithEvents btnModificacion As Button
     Friend WithEvents btnCerrar As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtEmpl_Totales As TextBox
+    Friend WithEvents txtEmpl_Encontrados As TextBox
 End Class
