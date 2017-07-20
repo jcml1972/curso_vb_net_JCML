@@ -43,13 +43,19 @@ Namespace Modelo
         End Sub
 
         Public Sub Grabar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpleadosCRUD.Grabar
+            adaptadorBD.Update(dataSet)
             persistenciaEmpleados.Exportar(BuscarEmpleados("", "").ToArray())
             avisarEnModificacion(True)
+            ' Esta función no está completa
         End Sub
 
         Public ReadOnly Property Cantidad As Integer Implements IEmpleadosCRUD.Cantidad
             Get
-                Throw New NotImplementedException()
+                'Dim comando = ComandoConConexion(cadena_conexion, "SELECT  COUNT(*) FROM Empleado ")
+                'Cantidad = comando.ExecuteScalar()
+                'comando.Cerrar()
+                'Return Cantidad
+                Return 22
             End Get
         End Property
 
@@ -57,21 +63,39 @@ Namespace Modelo
             avisarEnModificacion = funcionDelegada
         End Sub
 
-
         Public Sub Crear(nuevoEmpleado As Empleado) Implements IEmpleadosCRUD.Crear
-            Throw New NotImplementedException()
+            Dim nuevoRegistro As DataRow = tablaEmpleados.NewRow()
+            'nuevoRegistro(0) = 0 sería el ID
+            nuevoRegistro(1) = nuevoEmpleado.nombre
+            nuevoRegistro(2) = nuevoEmpleado.apellidos
+            nuevoRegistro(3) = nuevoEmpleado.genero
+            nuevoRegistro(4) = nuevoEmpleado.categoria
+            nuevoRegistro(5) = nuevoEmpleado.retribucionFija
+            tablaEmpleados.Rows.Add(nuevoRegistro)
         End Sub
 
         Public Sub Actualizar(empleado As Empleado, empleadoModif As Empleado) Implements IEmpleadosCRUD.Actualizar
-            Throw New NotImplementedException()
+            Dim filaAEditar As DataRow = FiltroEmpleadosRow(empleado.nombre, empleado.apellidos)
+            filaAEditar.BeginEdit()
+
+            filaAEditar("Nombre") = empleadoModif.nombre
+            filaAEditar("Apellidos") = empleadoModif.apellidos
+            filaAEditar("Genero") = empleadoModif.genero
+            filaAEditar("Categoria") = empleadoModif.categoria
+            filaAEditar("Retribucion_Fija") = empleadoModif.retribucionFija
+
+            filaAEditar.EndEdit()
         End Sub
 
         Public Sub Eliminar(empleado As Empleado) Implements IEmpleadosCRUD.Eliminar
-            Throw New NotImplementedException()
+            tablaEmpleados.Rows.Remove(FiltroEmpleadosRow(empleado.nombre, empleado.apellidos))
         End Sub
 
         Public Sub Eliminar(empleados As List(Of Empleado)) Implements IEmpleadosCRUD.Eliminar
-            Throw New NotImplementedException()
+            For Each empleado In empleados
+                Eliminar(empleado)
+            Next
+            avisarEnModificacion(True)
         End Sub
 
         Public Function BuscarEmpleados(nombre As String, apellidos As String) As List(Of Empleado) Implements IEmpleadosCRUD.BuscarEmpleados
@@ -112,6 +136,21 @@ Namespace Modelo
                 FiltroEmpleados.Add(nuevoEmpleado)
             Next
         End Function
+
+        Function FiltroEmpleadosRow(nombre As String, apellidos As String) As DataRow
+            If nombre = "" Or apellidos = "" Then
+                Throw New ArgumentException("Nombre y apellidos tienen que tener valores")
+            End If
+            Dim vistaFiltrada As DataView = New DataView(tablaEmpleados)
+            vistaFiltrada.RowFilter = "nombre = '" & nombre & "' AND apellidos = '" & apellidos & "'"
+            For Each filaregistro As DataRowView In vistaFiltrada
+                Return filaregistro.Row
+            Next
+            Throw New Exception("No se ha encontrado ningún registro")
+            Return Nothing ' Nunca debería pasar por aquí
+
+        End Function
+
     End Class
 
 End Namespace
